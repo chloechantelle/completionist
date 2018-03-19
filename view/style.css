@@ -1,0 +1,82 @@
+/*nav*/
+
+nav, .page-footer {
+	background: #000;
+	/*text-align: left;*/
+}
+
+nav ul li.active, .page-footer .footer-copyright {
+    background: #222;
+}
+
+.brand-logo {
+	margin-left: 10px;
+}
+
+/*fix overlay issue*/
+.side-nav {
+	z-index: 999;
+}
+#sidenav-overlay {
+    z-index: 990;
+}
+
+/*requests*/
+
+.request {
+	/*background: #eee;*/
+}
+
+.row .col.m7 {
+    width: 100%;
+}
+
+.row {
+	margin: 20px auto;
+	width: 50%;
+    text-align: center;
+}
+
+.card .card-image .card-title {
+	color: #222;
+}
+
+/*sticky footer*/
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+/* login page */
+.login {
+	padding: 250px 0px 250px 0px;	
+}
+.login h1, .login .notice {	
+	text-align: center;
+	padding: 20px;
+	color: #fff;
+}
+.login h1 {
+	font-size: 35px;
+}
+.login input {
+	display: block;
+	padding: 15px;
+	width: 30%;
+	text-align: center;
+	margin: 10px auto;
+	border: none;
+	border-radius: 5px;
+}
+.login input[type="submit"] {
+	background: var(--accent);
+	color: #fff;
+}
+.login input[type="submit"]:hover {
+	opacity: 0.8;
+}
