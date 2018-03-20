@@ -28,3 +28,9 @@ $(window).on('scroll',function(){
          });  
      }
  });
+
+
+function register() {
+$('#login').modal('close');
+$('#register').modal('open');
+}

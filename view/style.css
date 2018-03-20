@@ -1,12 +1,29 @@
+/*colors*/
+.pink-text.text-lighten-3 {
+    color: #b6aac1 !important;
+}
+
+.btn-floating, .btn, .btn-large, .btn-large:hover, .btn:hover {
+    color: #fff;
+    background-color: #b6aac1;
+}
+
+.main {
+	background: url("img/sample.png");
+	background-size: cover;
+	/*min-height: 400px;*/
+	padding: 40px;
+}
+
 /*nav*/
 
 nav, .page-footer {
-	background: #000;
+	background: #b6aac1;
 	/*text-align: left;*/
 }
 
 nav ul li.active, .page-footer .footer-copyright {
-    background: #222;
+    /*background: #222;*/
 }
 
 .brand-logo {
@@ -28,13 +45,13 @@ nav ul li.active, .page-footer .footer-copyright {
 }
 
 .row .col.m7 {
-    width: 100%;
+    /*width: 100%;*/
 }
 
 .row {
-	margin: 20px auto;
-	width: 50%;
-    text-align: center;
+	/*margin: 20px auto;*/
+	/*width: 50%;*/
+    /*text-align: center;*/
 }
 
 .card .card-image .card-title {
@@ -52,14 +69,53 @@ body {
     flex: 1 0 auto;
   }
 
-/* login page */
-.login {
-	padding: 250px 0px 250px 0px;	
+/* <3 */
+footer .luv {
+    text-align: center;
+    color: #777;
 }
-.login h1, .login .notice {	
+
+footer .luv::before, footer .luv::after {
+    content: "♥";
+    margin: 0px 5px 0px 5px;
+    opacity: 0;
+    transition: ease-in-out .3s;
+}
+
+footer .luv:hover:before, footer .luv:hover:after {
+    opacity: 1 !important;
+    transition: ease-in-out .3s;
+}
+
+.btn, .btn-large, .btn-large:hover, .btn:hover {	
+	padding: 10px;
+	margin-top: 20px;
+}  
+
+.btn-floating {
+    width: 100px;
+    height: 100px;
+    line-height: 85px;
+    font-weight: 900;
+    font-size: 17px;
+}
+
+.subcon {
+	text-align: center;
+	margin: 20px auto;
+	padding: 20px;
+}
+
+.subcon .notice {	
+	margin-top: 30px;
+	color: blue;
+	cursor: pointer;
+}
+
+/* login page 
+/*.login h1, .login .notice {	
 	text-align: center;
 	padding: 20px;
-	color: #fff;
 }
 .login h1 {
 	font-size: 35px;
@@ -67,16 +123,9 @@ body {
 .login input {
 	display: block;
 	padding: 15px;
-	width: 30%;
+	width: 20%;
 	text-align: center;
 	margin: 10px auto;
 	border: none;
 	border-radius: 5px;
-}
-.login input[type="submit"] {
-	background: var(--accent);
-	color: #fff;
-}
-.login input[type="submit"]:hover {
-	opacity: 0.8;
-}
+}*/

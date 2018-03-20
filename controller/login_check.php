@@ -19,7 +19,7 @@ $result = $stmt->fetchAll();
 // if it exists
 if (count($result) ) {
 	// echo "Email exists!";
-	header('Location: ../model/view_books.php');
+	header('Location: ../model/ActiveRequests.php');
 }
 
 // if it doesn't exist

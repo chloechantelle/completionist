@@ -1,4 +1,9 @@
 <?php	
+session_start();
+// if (!isset($_SESSION)) { session_start(); }
+$_SESSION['loggedin'] = true;
+$_SESSION['beep'] = 'boop';
+
 include 'db.php';	
 include '../view/header.php';	
 include '../navigation.php';
