@@ -9,3 +9,5 @@ To do:
 ~~4. Add login/register functions~~
 5. Add another controller
 6. Finish update process file
+7. Include approximate time and terms and conditions for contracts
+8. Import contract information into admin profile
