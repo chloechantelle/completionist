@@ -1,4 +1,4 @@
-/*colors*/
+colors*/
 .pink-text.text-lighten-3 {
     color: #b6aac1 !important;
 }
@@ -36,6 +36,46 @@ nav ul li.active, .page-footer .footer-copyright {
 }
 #sidenav-overlay {
     z-index: 990;
+}
+
+/*admin profile*/
+
+.admin {
+	background: #111;
+	margin: 0 auto;
+}
+
+.adminleft {
+	background: #eee;
+	width: 30%;
+	float: left;		
+	text-align: center;
+	min-height: 700px;	
+}
+
+.adminleft img {
+	padding: 30px;
+}
+
+.adminright {
+	/*background: pink;*/
+	width: 70%;
+	float: right;
+	text-align: right;
+	min-height: 700px;
+	/*margin: 0 auto;*/
+}
+
+.adminright table {
+	/*padding: 10px;*/
+}
+
+.admin h1 {
+	font-size: 25px;
+}
+
+.admin h2 {
+	font-size: 20px;
 }
 
 /*requests*/
@@ -128,4 +168,4 @@ footer .luv:hover:before, footer .luv:hover:after {
 	margin: 10px auto;
 	border: none;
 	border-radius: 5px;
-}*/
+}

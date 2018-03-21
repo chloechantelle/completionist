@@ -102,6 +102,7 @@ else{
 <div class="row">
     <form class="col s12 register">
       <div class="row">
+        <h3>Register</h3>
       	<!-- Email -->
         <div class="input-field col s6">
             <i class="fas fa-envelope-open prefix"></i>
@@ -151,6 +152,8 @@ else{
           <label for="icon_prefix">Xbox</label>
         </div>
       </div>
+      <div class="subcon">
+      <input class="waves-effect waves-light btn" type="submit" name="submit" value="Register">    </div>
   </form>
 </div>
 

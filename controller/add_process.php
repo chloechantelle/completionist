@@ -9,8 +9,21 @@ include '../navigation.php';
 
 <?php
 
-$insert_sql = "INSERT INTO contract(PaymentDate, PaymentAmount) values ('4/4/4', '50')";	
+// INSERT INTO `contract`(`PaymentDate`, `PaymentAmount`, `GameID`, `UserID`) VALUES ('20/03/17', '$100', 2, 2);
 
+// INSERT INTO `contractstatus`(`StatusID`, `CurrentStatus` `GameID`) VALUES ('Working On', 3);
+
+$insert_sql = "INSERT INTO contract(PaymentDate, PaymentAmount, TimeGiven, GameID) values
+(  '" . $_POST['PaymentDate'] . "',
+'" . $_POST['PaymentAmount'] . "',
+'" . $_POST['TimeGiven'] . "',
+'" . $_POST['GameTitle'] . "'
+  ) ";	
+
+$stmt = $conn->prepare($insert_sql);
+$stmt->execute();
+
+echo "Created new contract!";
 // '" . $_POST['PaymentDate'] . "',
 // '" . $_POST['GameTitle'] . "',
 // '" . $_POST['PaymentAmount'] . "'
@@ -23,8 +36,8 @@ $insert_sql = "INSERT INTO contract(PaymentDate, PaymentAmount) values ('4/4/4',
 // games(GameTitle)
 // VALUES ('NameName')
 
-$stmt = $conn->prepare($insert_sql);
-$stmt->execute();
+// $stmt = $conn->prepare($insert_sql);
+// $stmt->execute();
 
 ?>
 
