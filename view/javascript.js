@@ -1,3 +1,29 @@
+$(function() {
+  $("form[name='registration']").validate({
+    rules: {
+      PaymentDate: "required",
+      PaymentAmount: "required",
+      TimeGiven: {
+        required: true
+      },
+      Status: {
+        required: true
+      }
+    },
+    messages: {
+      PaymentDate: "Please enter valid date",
+      Status: "Please enter valid status",
+      PaymentAmount: "Please enter valid amount",
+      TimeGiven: {
+        required: "Please enter valid time"
+      },
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+  });
+});
+
 $(document).ready(function(){
     // $('.tooltipped').tooltip({delay: 50}); 
     $(".button-collapse").sideNav();
