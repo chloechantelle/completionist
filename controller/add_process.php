@@ -1,29 +1,50 @@
+<?php
+header('Refresh: 3; URL=../view/ActiveRequests.php');
+?>
+
 <?php	
+// error_reporting(-1);
+session_start();
 include '../model/db.php';	
 include '../view/header.php';	
-include '../navigation.php';
+include '../view/navigation.php';
 ?>	
 <style><?php include '../view/style.css';?></style>	
 <script src="../view/javascript.js"></script>
-	
 
 <?php
 
-// INSERT INTO `contract`(`PaymentDate`, `PaymentAmount`, `GameID`, `UserID`) VALUES ('20/03/17', '$100', 2, 2);
+// set variables
+$date = $_POST['PaymentDate'];
+$amount = $_POST['PaymentAmount'];
+$time = $_POST['TimeGiven'];
+$status = $_POST['Status'];
+// $gameID = $_POST['GameID'];
 
-// INSERT INTO `contractstatus`(`StatusID`, `CurrentStatus` `GameID`) VALUES ('Working On', 3);
-
-$insert_sql = "INSERT INTO contract(PaymentDate, PaymentAmount, TimeGiven, GameID) values
+// create contract
+$insert_sql = "INSERT INTO contract (PaymentDate, PaymentAmount, TimeGiven, Status, GameID) 
+VALUES
 (  '" . $_POST['PaymentDate'] . "',
 '" . $_POST['PaymentAmount'] . "',
 '" . $_POST['TimeGiven'] . "',
-'" . $_POST['GameTitle'] . "'
-  ) ";	
+'" . $_POST['Status'] . "', 
+'" . $_POST['GameID'] . "'
+
+);";
 
 $stmt = $conn->prepare($insert_sql);
 $stmt->execute();
 
-echo "Created new contract!";
+// test
+// print_r($_POST);  
+
+echo '
+<div class="message">
+<p>Created new contract!</p>
+<p>Redirecting you back to contracts</p>
+</div>
+';
+
 // '" . $_POST['PaymentDate'] . "',
 // '" . $_POST['GameTitle'] . "',
 // '" . $_POST['PaymentAmount'] . "'
@@ -41,3 +62,6 @@ echo "Created new contract!";
 
 ?>
 
+<?php
+			include '../view/footer.php';
+?>	
