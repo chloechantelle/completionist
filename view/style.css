@@ -1,24 +1,25 @@
-colors*/
+/*colors*/
 .pink-text.text-lighten-3 {
-    color: #b6aac1 !important;
+    color: #1e1f40 !important;
 }
 
 .btn-floating, .btn, .btn-large, .btn-large:hover, .btn:hover {
     color: #fff;
-    background-color: #b6aac1;
+    background-color: #1e1f40;
 }
 
 .main {
-	background: url("img/sample.png");
+	background: url("img/stars.png");
 	background-size: cover;
 	/*min-height: 400px;*/
-	padding: 40px;
+	padding: 100px 60px 60px 60px;
+	color: #fff;	
 }
 
 /*nav*/
 
 nav, .page-footer {
-	background: #b6aac1;
+	background: #1e1f40;
 	/*text-align: left;*/
 }
 
@@ -78,7 +79,48 @@ nav ul li.active, .page-footer .footer-copyright {
 	font-size: 20px;
 }
 
+/*contact*/
+
+.contact {
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+}
+
+.contact:active {
+	background: #b6aac1;
+}
+
+.btn-floating.btn-large i {
+	font-size: 35px;
+ 	margin-left: -9px;
+ 	line-height: 39px;
+}
+
 /*requests*/
+
+.contract {
+	width: 80%;
+	margin: 20px auto;
+}
+
+.submit {
+	text-align: center;
+}
+
+.submit .btn-large {
+	font-size: 20px;
+	text-transform: none;
+	height: 45px;
+}
+
+input::placeholder {
+	color: #000 !important;
+}
+
+.error {
+	color: red;
+}
 
 .request {
 	/*background: #eee;*/
@@ -98,6 +140,34 @@ nav ul li.active, .page-footer .footer-copyright {
 	color: #222;
 }
 
+/*message*/
+
+.message {
+	margin: 50px auto;
+	/*text-align: center;*/
+	background: #ddd;
+	padding: 40px;
+	width: 80%;
+}
+
+/*log out*/
+
+.logout {
+	margin: 0 auto;
+	/*text-align: center;*/
+	/*background: #ddd;*/
+	padding: 40px;
+	width: 80%;
+}
+
+.logout h1 {
+	font-size: 25px;
+}
+
+.logout p {
+	font-size: 20px;
+}
+
 /*sticky footer*/
 body {
     display: flex;
@@ -110,9 +180,18 @@ body {
   }
 
 /* <3 */
-footer .luv {
+.luv a {
     text-align: center;
-    color: #777;
+    color: #aaa;
+}
+
+.container {
+text-align: center;
+}
+
+.row .col.l4, .row .col.offset-l2 {
+width: 100%;
+margin: 0 auto;
 }
 
 footer .luv::before, footer .luv::after {
