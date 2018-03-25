@@ -5,21 +5,46 @@
 	session_start();
 	include 'model/db.php';
 	include 'view/header.php';		
-	$_SESSION["loggedin"] = false;
+	// $_SESSION["beep"] = 'boop';
+      // session_unset(); 
+      // session_destroy(); 
 	?>
 
 	<!-- content -->
 
-<?php 
-$log_session = $_SESSION['loggedin'];
+<?php
 
-if($log_session == false) {
-	include 'pubnav.php';	
+if (isset($_SESSION['LoggedIn'])) {
+    // unset($_SESSION['LoggedIn']);
+     include 'view/navigation.php'; 
+    ?><style>#download-button {display: none;}</style><?php
 }
-else{
-	include 'navigation.php';	
+else {
+   include 'view/pubnav.php'; 
 }
 
+// if loggedin is false; show public navbar
+// $log_session = $_SESSION['LoggedIn'];
+// if($log_session == false) {
+// 	include 'pubnav.php';	
+// }
+// else{
+// 	include 'view/navigation.php';	
+// }
+
+// if session empty show message to prevent error
+// if(isset($_SESSION['LoggedIn']) && !empty($_SESSION['LoggedIn'])) {  
+//   $_SESSION["LoggedIn"] = 'yup!';
+// }
+// else{
+//   $_SESSION["LoggedIn"] = 'nope!';
+// }
+// if(isset($_SESSION['Role']) && !empty($_SESSION['Role'])) {  
+//   $_SESSION["Role"] = 'yup!';
+// }
+// else{
+//   $_SESSION["Role"] = 'nope!';
+// }
 ?>
 
 <!-- title section -->
@@ -63,24 +88,35 @@ else{
 
       </div>
 
+<?php
+  if(isset($_POST['SubmitButton'])){ //check if form was submitted
+  $input = $_POST['email']; //get input text
+  $message = "Success! You entered: ".$input;
+  echo 'beep';
+}    
+?>     
+
 <!-- login modal -->
 <div id="login" class="modal">
     <div class="modal-content">
   <div class="row">
     <form class="col s12" action="controller/login_check.php" method="post">
+          <!-- <form class="col s12" action="" method="post"> -->
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
 
               <!-- <input id="icon_prefix" type="text" class="validate"> -->
-              <input id="icon_prefix" class="validate" required type="text" name="Username" placeholder="Username">
+              <input id="icon_prefix" class="validate" required type="text" name="Email" placeholder="Email">
 
           <label for="icon_prefix">Email</label>
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">vpn_key</i>
 
-              <input id="icon_pass" class="validate" required type="password" name="password" placeholder="Password">
+              <input id="icon_pass" class="validate" required type="Password" name="Password" placeholder="Password">
+
+              <!-- <input type="Password" name="Password" placeholder="Password"> -->
 
           <label for="icon_pass">Password</label>          
         </div>
@@ -100,19 +136,19 @@ else{
   
     <!-- register -->
 <div class="row">
-    <form class="col s12 register">
+    <form class="col s12 register" action="controller/register_check.php" method="post">      
       <div class="row">
         <h3>Register</h3>
       	<!-- Email -->
         <div class="input-field col s6">
             <i class="fas fa-envelope-open prefix"></i>
-          <input id="icon_prefix" type="text" class="validate">
+          <input id="icon_prefix" name="Email" type="text" class="validate">
           <label for="icon_prefix">Email</label>
         </div>
         <!-- Password -->
         <div class="input-field col s6">
           <i class="fas fa-key prefix"></i>
-          <input id="icon_prefix" type="text" class="validate">
+          <input id="icon_prefix" name="Password" type="password" class="validate">
           <label for="icon_prefix">Password</label>
         </div>    
          <!-- First Name -->
