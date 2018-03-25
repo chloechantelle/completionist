@@ -8,18 +8,21 @@
                 <h5 class="white-text">Debug</h5>
                 <p>
                   <?php
-                    // echo '<pre>';
-                    var_dump($_SESSION);
-                    // echo '</pre>';
+                  // dumps with arrays
+                    // var_dump($_SESSION);
+
+                  // dumps clean variables
+                  foreach ($_SESSION as $key=>$val)
+                  echo $key." : ".$val."<br/>";
                   ?>
                 </p>
               </div>
             </div>
           </div>
           <div class="footer-copyright">
-            <div class="container">
-             <a href="http://chloechantelle.com" target="_blank" class="luv">made w/ love by coco ©</a>
-            <a class="luv right" href="#!">Another Link</a>
+            <div class="luv container">
+             <a href="http://chloechantelle.com" target="_blank" >made w/ love by coco ©</a>
+            <!-- <a class="luv right" href="#!">Another Link</a> -->
             </div>
           </div>
         </footer>
