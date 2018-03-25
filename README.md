@@ -4,10 +4,23 @@
 To do:
 
 ~~1. Import design index~~
-2. Fix insert error
+
+~~2. Fix insert error~~
+
 ~~3. Echo session into footer~~
+
 ~~4. Add login/register functions~~
-5. Add another controller
-6. Finish update process file
+
+~~5. Add another controller~~
+
+~~6. Finish update process file~~
+
 7. Include approximate time and terms and conditions for contracts
-8. Import contract information into admin profile
+
+~~8. Import contract information into admin profile~~
+
+9. Put login/register into function and
+
+10. Move login/register form from index to seperate file
+
+11. Get either a user dropdown for contracts working or individual ID'd pages.
