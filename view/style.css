@@ -28,7 +28,7 @@ nav ul li.active, .page-footer .footer-copyright {
 }
 
 .brand-logo {
-	margin-left: 10px;
+	margin-left: 10px;	
 }
 
 /*fix overlay issue*/
@@ -81,6 +81,22 @@ nav ul li.active, .page-footer .footer-copyright {
 
 /*contact*/
 
+.requests {
+	display: inline-block;
+	width: 100%;
+}
+
+.requestrow {
+	/*display: inline-block;*/
+	width: 50%;
+	margin: 30px auto;
+}
+
+.requestcol {
+	/*display: inline-block;*/
+	width: 100% !important;	
+}
+
 .contact {
 	position: fixed;
 	bottom: 50px;
@@ -122,22 +138,16 @@ input::placeholder {
 	color: red;
 }
 
-.request {
-	/*background: #eee;*/
-}
-
-.row .col.m7 {
-    /*width: 100%;*/
-}
-
-.row {
-	/*margin: 20px auto;*/
-	/*width: 50%;*/
-    /*text-align: center;*/
-}
-
 .card .card-image .card-title {
-	color: #222;
+	color: #fff;
+}
+
+.submitupdate {
+	margin-top: -20px;
+}
+
+.card-content p {
+	font-size: 20px;
 }
 
 /*message*/
@@ -146,6 +156,7 @@ input::placeholder {
 	margin: 50px auto;
 	/*text-align: center;*/
 	background: #ddd;
+	font-weight: 900;
 	padding: 40px;
 	width: 80%;
 }
@@ -178,6 +189,29 @@ body {
   main {
     flex: 1 0 auto;
   }
+
+@media only screen and (max-width: 1200px) {
+	.requestrow {
+	/*display: inline-block;*/
+	width: 90%;
+	margin: 30px auto;
+	}
+	
+	nav .brand-logo {
+		font-size: 30px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.requestrow {
+	/*display: inline-block;*/
+	width: 100%;
+	margin: 0px auto;
+	}
+	nav .brand-logo {
+		font-size: 15px;
+	}
+}
 
 /* <3 */
 .luv a {
@@ -229,22 +263,4 @@ footer .luv:hover:before, footer .luv:hover:after {
 	margin-top: 30px;
 	color: blue;
 	cursor: pointer;
-}
-
-/* login page 
-/*.login h1, .login .notice {	
-	text-align: center;
-	padding: 20px;
-}
-.login h1 {
-	font-size: 35px;
-}
-.login input {
-	display: block;
-	padding: 15px;
-	width: 20%;
-	text-align: center;
-	margin: 10px auto;
-	border: none;
-	border-radius: 5px;
 }
