@@ -79,16 +79,16 @@ var frm = $('#idForm');
               // correct
                 if (data == "Success") {
                   // form.submit()
-                  console.log(xhr.status);
-                  // console.log(data); 
+                  // console.log(xhr.status);
+                  console.log(data); 
                   // window.location.href = 'view/ActiveRequests.php';  
                   // header('Location: view/ActiveRequests.php');  
                 document.getElementById("message").style.display="block";
                 }               
                 // incorrect
                 else {
-                  console.log(xhr.status);
-                // console.log(data);
+                  // console.log(xhr.status);
+                console.log(data);
                 // alert(data);     
                 // window.location.href = 'view/ActiveRequests.php';  
                 document.getElementById("messagebad").style.display="block";
