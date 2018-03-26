@@ -36,13 +36,13 @@ $userresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
     ;}?>
 </select>
 
-<select>
-<option value="" selected>Choose user</option>
+<select name="UserID" class="icons">
+<option selected>Choose user</option>
 <?php 
     foreach($userresult as $user) {
       echo'
-      <option value="" >
-      "' . $user['Email'] . '"
+      <option value="' . $user['UserID'] . '" data-icon="../view/img/pachimari.png" class="circle">
+      "' . $user['Email'] . '", "' . $user['UserID'] . '"
       </option>'      
     ;}?>
 </select>
@@ -51,7 +51,7 @@ $userresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 	<input type="text" id="PaymentDate" name="PaymentDate" placeholder="Payment Date">
 	<input type="text" id="PaymentAmount" name="PaymentAmount" placeholder="Payment Amount">
-	<input type="text" id="TimeGiven" name="TimeGiven" placeholder="Approximate Time To Finish">
+	<input type="text" id="TimeGiven" name="TimeGiven" placeholder="Approximate Time To Finish (in hours)">
        <input type="text" id="Status" name="Status" placeholder="Current Status">
 
        <div class="submit">
