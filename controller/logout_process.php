@@ -4,7 +4,7 @@ session_unset();
 session_destroy(); 
 include '../model/db.php';	
 include '../view/header.php';	
-include '../view/navigation.php';
+include '../view/pubnav.php';
 ?>
 
 <?php
