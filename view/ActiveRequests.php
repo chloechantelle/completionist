@@ -2,20 +2,8 @@
 session_start();	
 include '../model/db.php';  
 include 'header.php';	
-// include '../navigation.php';
+include 'navigation.php';
 ?>	
-
-<?php
-
-if (isset($_SESSION['LoggedIn'])) {
-    // unset($_SESSION['LoggedIn']);
-     include 'navigation.php'; 
-}
-else {
-   include 'pubnav.php'; 
-}
-
-?>
 
 <style><?php include '../view/style.css';?></style>	
 <script src="../view/javascript.js"></script>
@@ -29,7 +17,7 @@ else {
 
 	// $activequery = " SELECT * FROM `games`, `contract`, `contractstatus` ";
 
-  $activequery = ' SELECT contract.Status, contract.GameID, games.GameTitle, contract.TimeGiven, contract.PaymentAmount
+  $activequery = ' SELECT games.Cover, contract.Status, contract.GameID, games.GameTitle, contract.TimeGiven, contract.PaymentAmount
 FROM contract
 INNER JOIN games
 ON contract.GameID=games.GameID where contract.Status <> "Completed" ';
@@ -43,11 +31,11 @@ ON contract.GameID=games.GameID where contract.Status <> "Completed" ';
 		foreach($activeresult as $row) {
 			echo'
 
-<div class="row">
-<div class="col s12 m7">
-<div class="card small">
+<div class="requestrow row">
+<div class="requestcol col s12 m7">
+<div class="requestcard card small">
 <div class="card-image">
-	<img src="../view/img/sample.png">
+	<img src="' . $row['Cover'] . '">
 	<span class="card-title">' . $row['GameTitle'] . '</span>
 </div>
 <div class="card-content">
@@ -56,6 +44,9 @@ ON contract.GameID=games.GameID where contract.Status <> "Completed" ';
             $' . $row['PaymentAmount'] . ' •              
 	' . $row['Status'] . '
 </p>
+<div class="submit submitupdate">
+<input class="sub waves-effect waves-light btn-large right" type="submit" name="submit" value="Update Contract">
+</div>
 </div>            
 </div>
 </div>
@@ -77,7 +68,6 @@ ON contract.GameID=games.GameID where contract.Status <> "Completed" ';
 		// 	</div></div>';}
 ?>	
 
-
-			<?php
-			include '../view/footer.php';
-			?>	
+<?php
+include '../view/footer.php';
+?>	
