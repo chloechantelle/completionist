@@ -5,47 +5,13 @@
 	session_start();
 	include 'model/db.php';
 	include 'view/header.php';		
+  include 'view/navigation.php'; 
 	// $_SESSION["beep"] = 'boop';
       // session_unset(); 
       // session_destroy(); 
 	?>
 
 	<!-- content -->
-
-<?php
-
-if (isset($_SESSION['LoggedIn'])) {
-    // unset($_SESSION['LoggedIn']);
-     include 'view/navigation.php'; 
-    ?><style>#download-button {display: none;}</style><?php
-}
-else {
-   include 'view/pubnav.php'; 
-}
-
-// if loggedin is false; show public navbar
-// $log_session = $_SESSION['LoggedIn'];
-// if($log_session == false) {
-// 	include 'pubnav.php';	
-// }
-// else{
-// 	include 'view/navigation.php';	
-// }
-
-// if session empty show message to prevent error
-// if(isset($_SESSION['LoggedIn']) && !empty($_SESSION['LoggedIn'])) {  
-//   $_SESSION["LoggedIn"] = 'yup!';
-// }
-// else{
-//   $_SESSION["LoggedIn"] = 'nope!';
-// }
-// if(isset($_SESSION['Role']) && !empty($_SESSION['Role'])) {  
-//   $_SESSION["Role"] = 'yup!';
-// }
-// else{
-//   $_SESSION["Role"] = 'nope!';
-// }
-?>
 
 <!-- title section -->
 <div class="main">
