@@ -22,13 +22,14 @@ $status = $_POST['Status'];
 // $gameID = $_POST['GameID'];
 
 // create contract
-$insert_sql = "INSERT INTO contract (PaymentDate, PaymentAmount, TimeGiven, Status, GameID) 
+$insert_sql = "INSERT INTO contract (PaymentDate, PaymentAmount, TimeGiven, Status, GameID, UserID) 
 VALUES
 (  '" . $_POST['PaymentDate'] . "',
 '" . $_POST['PaymentAmount'] . "',
 '" . $_POST['TimeGiven'] . "',
 '" . $_POST['Status'] . "', 
-'" . $_POST['GameID'] . "'
+'" . $_POST['GameID'] . "',
+'" . $_POST['UserID'] . "'
 
 );";
 
