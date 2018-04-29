@@ -2,9 +2,12 @@
 session_start();
 include '../model/db.php';
 include '../view/header.php';
-    // include 'navigation.php';
+include '../view/navigation.php';
+header('Refresh: 5; URL=../view/ActiveRequests.php');              
 ?>
 
+<style><?php include '../view/style.css';?></style> 
+<script src="../view/javascript.js"></script>
 
 <?php
 
@@ -30,7 +33,11 @@ $role = 'Customer';
 
 // if it exists
 if (count($result) ) {
-    echo "Email exists already!";   
+    echo '
+    <div class="message">
+    <p>Email exists already!</p>
+    </div>
+    '; 
 }
 
 // if it doesn't exist
@@ -48,13 +55,24 @@ else {
     'Customer'
 )";
     $stmt = $conn->prepare($register);
-    $stmt->execute();
+    $stmt->execute();        
+
+    echo '
+    <div class="logout"><h1>Registered! 
+    Welcome ' . $_POST['Email'] . '!
+    </h1>
+    <p>Redirecting you now. Click here if you do not get redirected.</p></div>
+    ';
 
 // redirect user    
-    echo'Registered!';
-    foreach ($_SESSION as $key=>$val)
-                  echo $key." : ".$val."<br/>";
-header('Refresh: 5; URL=../view/ActiveRequests.php');              
+    // echo'Registered!';
+    // foreach ($_SESSION as $key=>$val)
+                  // echo $key." : ".$val."<br/>";
+// header('Refresh: 5; URL=../view/ActiveRequests.php');              
 }
 
+?>
+
+<?php
+include '../view/footer.php';
 ?>
