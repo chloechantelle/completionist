@@ -3,17 +3,57 @@
     color: #1e1f40 !important;
 }
 
-.btn-floating, .btn, .btn-large, .btn-large:hover, .btn:hover {
+.btn-floating, .btn, .btn-large, .btn-large:hover, .btn:hover, .btn-large:focus, .btn-large:active, .waves-button-input {
     color: #fff;
     background-color: #1e1f40;
 }
 
 .main {
-	background: url("img/stars.png");
+	background: url("img/controller.jpg");
 	background-size: cover;
-	/*min-height: 400px;*/
-	padding: 100px 60px 60px 60px;
+	/*height: 100%;	*/
+	padding: 230px 130px 200px 130px;	
+}
+
+.main h5 {
 	color: #fff;	
+	font-size: 30px;
+}
+
+.inforow {
+	padding: 100px;
+}
+
+.games {
+	background: #1e1f40;
+	margin-bottom: 0px;
+	padding: 20px;
+}
+
+.games h3 {
+	color: #eee;
+	text-align: center;
+	padding-top: 30px;
+	font-size: 22px;
+}
+
+.moreinfo {
+	background: #fff;
+	margin-bottom: 0px;
+	padding: 100px;
+}
+
+.moreinfo h3 {
+	text-align: center;
+	font-size: 35px;
+}
+
+.moreinfo p {
+	padding: 20px;
+}
+
+.page-footer {
+	padding: 70px;
 }
 
 /*nav*/
@@ -28,14 +68,34 @@ nav ul li.active, .page-footer .footer-copyright {
 }
 
 .brand-logo {
-	margin-left: 10px;
+	margin-left: 10px;	
+}
+
+	/* dropdowns */
+	
+.dropdown-content {
+	background: #eee;
+	min-width: 250px;
+	top: -50px;	
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+	color: #1e1f40;
+}
+
+.dropdown-content li:hover, .select-dropdown.dropdown-content li:hover {
+	background: #1e1f40;	
+}
+
+.dropdown-content li > a:hover, .dropdown-content li > span:hover, .select-dropdown.dropdown-content li, .select-dropdown.dropdown-content li.selected {
+	color: #eee;
 }
 
 /*fix overlay issue*/
-.side-nav {
+.sidenav {
 	z-index: 999;
 }
-#sidenav-overlay {
+.sidenav-overlay {
     z-index: 990;
 }
 
@@ -79,7 +139,51 @@ nav ul li.active, .page-footer .footer-copyright {
 	font-size: 20px;
 }
 
-/*contact*/
+/* settings */
+
+.spy {
+	position: fixed;
+	left: 13%;
+	top: 20%;
+	font-size: 20px;
+	/*width: 40% !important*/
+}
+
+.settings {
+	width: 70% !important;
+	padding-right: 10% !important;
+}
+
+.switch label input[type="checkbox"]:checked + .lever::after {
+background-color: #272856; 		
+}
+
+.switch label input[type="checkbox"]:checked + .lever {
+background-color: #bbb; 	
+}
+
+.table-of-contents a.active, .table-of-contents a:hover {
+    border-left: 2px solid #1e1f40;
+    color: #1e1f40;
+}
+
+/*contract*/
+
+.requests {
+	display: inline-block;
+	width: 100%;
+}
+
+.requestrow {
+	/*display: inline-block;*/
+	width: 50%;
+	margin: 30px auto;
+}
+
+.requestcol {
+	/*display: inline-block;*/
+	width: 100% !important;	
+}
 
 .contact {
 	position: fixed;
@@ -94,24 +198,43 @@ nav ul li.active, .page-footer .footer-copyright {
 .btn-floating.btn-large i {
 	font-size: 35px;
  	margin-left: -9px;
- 	line-height: 39px;
+ 	/*line-height: 39px;*/
 }
 
 /*requests*/
 
 .contract {
 	width: 80%;
-	margin: 20px auto;
+	margin: 10px auto;
 }
 
 .submit {
 	text-align: center;
 }
 
+.card {
+	background: #ddd;
+}
+
+.card .card-content p {
+	font-size: 16px;
+}
+
+.card .card-title {
+	text-shadow: 3px 3px 4px rgba(0,0,0,0.8);
+	font-weight: 900;
+}
+
 .submit .btn-large {
 	font-size: 20px;
 	text-transform: none;
-	height: 45px;
+	/*height: 45px;*/
+	/*height: 30px;*/
+	/*padding: 10px;*/
+}
+
+.waves-button-input {
+	line-height: 50px;
 }
 
 input::placeholder {
@@ -122,22 +245,16 @@ input::placeholder {
 	color: red;
 }
 
-.request {
-	/*background: #eee;*/
-}
-
-.row .col.m7 {
-    /*width: 100%;*/
-}
-
-.row {
-	/*margin: 20px auto;*/
-	/*width: 50%;*/
-    /*text-align: center;*/
-}
-
 .card .card-image .card-title {
-	color: #222;
+	color: #fff;
+}
+
+.submitupdate {
+	margin-top: -20px;
+}
+
+.card-content p {
+	font-size: 20px;
 }
 
 /*message*/
@@ -146,6 +263,7 @@ input::placeholder {
 	margin: 50px auto;
 	/*text-align: center;*/
 	background: #ddd;
+	font-weight: 900;
 	padding: 40px;
 	width: 80%;
 }
@@ -179,6 +297,29 @@ body {
     flex: 1 0 auto;
   }
 
+@media only screen and (max-width: 1200px) {
+	.requestrow {
+	/*display: inline-block;*/
+	width: 90%;
+	margin: 30px auto;
+	}
+	
+	nav .brand-logo {
+		font-size: 30px;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.requestrow {
+	/*display: inline-block;*/
+	width: 100%;
+	margin: 0px auto;
+	}
+	nav .brand-logo {
+		font-size: 15px;
+	}
+}
+
 /* <3 */
 .luv a {
     text-align: center;
@@ -207,7 +348,7 @@ footer .luv:hover:before, footer .luv:hover:after {
 }
 
 .btn, .btn-large, .btn-large:hover, .btn:hover {	
-	padding: 10px;
+	/*padding: 10px;*/
 	margin-top: 20px;
 }  
 
@@ -231,20 +372,6 @@ footer .luv:hover:before, footer .luv:hover:after {
 	cursor: pointer;
 }
 
-/* login page 
-/*.login h1, .login .notice {	
-	text-align: center;
-	padding: 20px;
-}
-.login h1 {
-	font-size: 35px;
-}
-.login input {
-	display: block;
-	padding: 15px;
-	width: 20%;
-	text-align: center;
-	margin: 10px auto;
-	border: none;
-	border-radius: 5px;
+.waves-button-input {
+	cursor: pointer;	
 }
