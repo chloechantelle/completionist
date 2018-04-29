@@ -1,26 +1,21 @@
-<h1>WIP project</h1>
-<h2>Users will be able to request an admin to complete (acquire trophies/achievements) for them in a video game.</h2>
+# Completionist
+WIP Project
+Users will be able to request an admin (The Completionist) to complete (acquire trophies/achievements) for them in a video game.
 
-To do:
+![Preview](https://github.com/chloechantelle/blush/blob/master/view/img/preview.gif "Preview")
 
-~~1. Import design index~~
+# To Do
 
-~~2. Fix insert error~~
+Move login and register form from index to seperate file
 
-~~3. Echo session into footer~~
+Protect private pages via if else connected to sessions
 
-~~4. Add login/register functions~~
+Sanitize inputs
 
-~~5. Add another controller~~
+Remember user login info via localstorage method
 
-~~6. Finish update process file~~
+Notifications for updated contracts
 
-7. Include approximate time and terms and conditions for contracts
+Switch functions in settings to correctly work
 
-~~8. Import contract information into admin profile~~
-
-9. Put login/register into function and
-
-10. Move login/register form from index to seperate file
-
-11. Get either a user dropdown for contracts working or individual ID'd pages.
+Include terms inside contracts
