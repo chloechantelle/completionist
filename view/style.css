@@ -1,4 +1,4 @@
-/*colors*/
+﻿/*colors*/
 .pink-text.text-lighten-3 {
     color: #1e1f40 !important;
 }
@@ -12,7 +12,7 @@
 	background: url("img/controller.jpg");
 	background-size: cover;
 	/*height: 100%;	*/
-	padding: 230px 130px 200px 130px;	
+	padding: 250px 130px 300px 130px;	
 }
 
 .main h5 {

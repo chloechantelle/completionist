@@ -19,7 +19,11 @@ $role = $_SESSION['Role'];
 // if admin then show all contracts
 if (isset($_SESSION['Role']) && $_SESSION['Role'] == 'Admin') {
 
+<<<<<<< HEAD
 $adminquery = ' SELECT contract.ContractID, contract.PaymentDate, games.Cover, contract.Status, contract.GameID, games.GameTitle, contract.TimeGiven, contract.PaymentAmount
+=======
+  $activequery = ' SELECT games.Cover, contract.Status, contract.GameID, games.GameTitle, contract.TimeGiven, contract.PaymentAmount
+>>>>>>> origin/master
 FROM contract
 INNER JOIN games
 ON contract.GameID=games.GameID
@@ -67,7 +71,11 @@ $activeresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			' . $row['Status'] . '
 </p>
 <div class="submit submitupdate">
+<<<<<<< HEAD
 <a href="UpdateContract.php?ContractID=' . $row['ContractID'] . '" class="sub waves-effect waves-light btn-large right"><i class="material-icons left">update</i>Update Contract</a>
+=======
+<input class="sub waves-effect waves-light btn-large right" type="submit" name="submit" value="Update Contract">
+>>>>>>> origin/master
 </div>
 </div>            
 </div>

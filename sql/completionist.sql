@@ -1,15 +1,19 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Apr 29, 2018 at 08:54 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
+=======
+-- Generation Time: Mar 26, 2018 at 08:54 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
+>>>>>>> origin/master
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -33,7 +37,11 @@ CREATE TABLE `contract` (
   `PaymentDate` varchar(10) NOT NULL,
   `PaymentAmount` int(5) NOT NULL,
   `TimeGiven` varchar(10) NOT NULL,
+<<<<<<< HEAD
   `Status` varchar(30) NOT NULL,
+=======
+  `Status` varchar(20) NOT NULL,
+>>>>>>> origin/master
   `GameID` int(20) UNSIGNED NOT NULL,
   `UserID` int(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -43,11 +51,50 @@ CREATE TABLE `contract` (
 --
 
 INSERT INTO `contract` (`ContractID`, `PaymentDate`, `PaymentAmount`, `TimeGiven`, `Status`, `GameID`, `UserID`) VALUES
+<<<<<<< HEAD
 (132, '23/2/18', 50, '2', 'In Progress', 2, 2),
 (134, '27/04/18', 60, '60', 'Awaiting confirmation', 3, 2),
 (135, '2/2/18', 50, '50', 'Completed', 1, 2),
 (136, '4/4/18', 1, '2', 'Finishing', 3, 1),
 (147, '', 0, '', 'Submitted', 4, 2);
+=======
+(1, '20/20/10', 100, '10', 'Completed', 1, 2),
+(2, '2', 2, '2', 'Completed', 2, 2),
+(3, '3', 3, '3', 'Completed', 3, 2),
+(4, '4', 4, '4', 'Completed', 4, 2),
+(14, '4/4/4', 50, '5', 'Completed', 3, 24),
+(15, '4/4/4', 50, '2', 'Completed', 3, 23),
+(24, '4/4/4', 40, '1', 'Completed', 3, 2),
+(25, '4/4/4', 50, '1', 'Completed', 2, 2),
+(26, '2/4/17', 350, '50', 'In Progress', 1, 2),
+(27, '23/4/17', 100, '4', 'In Progress', 4, 2),
+(28, '2/4/18', 150, '10', 'Finalizing Contract', 4, 2),
+(30, '25/3/18', 200, '100', 'Awaiting Payment', 3, 24),
+(124, '23/3/18', 50, '2', 'In Progress', 3, 24),
+(131, '26/3/18', 100, '2', 'Finalizing Contract', 3, 24),
+(132, '23/2/18', 50, '2', 'In Progress', 2, 2),
+(133, '58943', 5984395, '58349', '59898', 2, 35);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contractstatus`
+--
+
+CREATE TABLE `contractstatus` (
+  `StatusID` int(20) UNSIGNED NOT NULL,
+  `CurrentStatus` varchar(20) NOT NULL,
+  `ContractID` int(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `contractstatus`
+--
+
+INSERT INTO `contractstatus` (`StatusID`, `CurrentStatus`, `ContractID`) VALUES
+(1, 'Progressing', 1),
+(2, 'Working', 14);
+>>>>>>> origin/master
 
 -- --------------------------------------------------------
 
@@ -116,6 +163,16 @@ ALTER TABLE `contract`
   ADD PRIMARY KEY (`ContractID`),
   ADD KEY `GameID` (`GameID`),
   ADD KEY `UserID` (`UserID`);
+<<<<<<< HEAD
+=======
+
+--
+-- Indexes for table `contractstatus`
+--
+ALTER TABLE `contractstatus`
+  ADD PRIMARY KEY (`StatusID`),
+  ADD KEY `ContractID` (`ContractID`);
+>>>>>>> origin/master
 
 --
 -- Indexes for table `games`
@@ -137,7 +194,16 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contract`
 --
 ALTER TABLE `contract`
+<<<<<<< HEAD
   MODIFY `ContractID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+=======
+  MODIFY `ContractID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
+--
+-- AUTO_INCREMENT for table `contractstatus`
+--
+ALTER TABLE `contractstatus`
+  MODIFY `StatusID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+>>>>>>> origin/master
 --
 -- AUTO_INCREMENT for table `games`
 --
@@ -156,9 +222,26 @@ ALTER TABLE `users`
 -- Constraints for table `contract`
 --
 ALTER TABLE `contract`
+<<<<<<< HEAD
   ADD CONSTRAINT `contract_ibfk_1` FOREIGN KEY (`GameID`) REFERENCES `games` (`GameID`),
   ADD CONSTRAINT `contract_ibfk_2` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`);
 COMMIT;
+=======
+  ADD CONSTRAINT `contract_ibfk_1` FOREIGN KEY (`GameID`) REFERENCES `games` (`GameID`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `contract_ibfk_2` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`);
+
+--
+-- Constraints for table `contractstatus`
+--
+ALTER TABLE `contractstatus`
+  ADD CONSTRAINT `contractID.status` FOREIGN KEY (`ContractID`) REFERENCES `contract` (`ContractID`) ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `games`
+--
+ALTER TABLE `games`
+  ADD CONSTRAINT `games_ibfk_1` FOREIGN KEY (`GameID`) REFERENCES `contract` (`GameID`);
+>>>>>>> origin/master
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
