@@ -1,3 +1,30 @@
+// debug switch
+function switchfunction() {
+    var x = document.getElementById("debug");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+        localStorage.setItem('debugswitch', 'on');
+    } else {
+        x.style.display = "none";
+        localStorage.setItem('debugswitch', 'off');
+    }
+}
+
+// remember debug switch 
+// if (typeof(Storage) !== "undefined") {
+//     // store
+//     localStorage.setItem("state", "none");
+//     // retrieve
+//     document.getElementById("debug").innerHTML = localStorage.getItem("state");
+// } else {
+//     document.getElementById("debug").innerHTML = "browser does not support Web Storage";
+// }
+
+        // settings - change accent color
+//   localStorage.setItem('color', 'red');
+//   localStorage.getItem('color');
+
+// validation
 $(function() {
   $("form[name='registration']").validate({
     rules: {
@@ -24,40 +51,45 @@ $(function() {
   });
 });
 
+  $(document).ready(function(){
+    $(".dropdown-trigger").dropdown();
+  });
+
+   $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+
+  // $('.dropdown-button').dropdown({
+  //          inDuration: 300,
+  //          outDuration: 225,
+  //          constrain_width: true, 
+  //          hover: false, 
+  //          gutter: 0, 
+  //          belowOrigin: false 
+  //          }
+  //     );
+
 $(document).ready(function(){
     // $('.tooltipped').tooltip({delay: 50}); 
-    $(".button-collapse").sideNav();
+    // $(".button-collapse").sideNav();
     $('.modal').modal();
-    $('select').material_select();
+    $('select').formSelect();
+    $('.scrollspy').scrollSpy();
+    // $('.sidenav').sidenav();
+    // $('select').material_select();
+    // $('.dropdown-trigger').dropdown();
+    // $('.dropdown-button').dropdown();
+    // $('.carousel').carousel();
     // $('.scrollspy').scrollSpy();
 });
 
 console.log("beep");
 
-$(window).on('scroll',function(){
-     if ($(window).scrollTop() >= 50) {
-         $('.navbar').css({
-          'background' : '#fff',
-          'color' : '#111',
-         });
-         $('.navbar li a').css({
-          'color' : '#111',
-          'padding' : '20px',
-         });  
-     } else {
-         $('.navbar').css({
-             'background' : 'transparent',
-             'color' : '#fff',
-         });
-         $('.navbar li a').css({
-          'color' : '#fff',
-          'padding' : '30px',
-         });  
-     }
- });
-
-
 function register() {
-$('#login').modal('close');
-$('#register').modal('open');
-}
+$('#login').modal();
+$('#register').modal();
+};
+
+ $(document).ready(function(){
+    $('.carousel').carousel();
+  });
