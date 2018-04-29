@@ -11,38 +11,51 @@
 
 	<?php
 
-	$getquery = "   SELECT * FROM `games`, `users`, `contract`, `contractstatus` ";
-
-	// $getquery = "   SELECT * FROM `games`, `users`, `contract`, `contractstatus`
-	//  where contractstatus.ContractID = 1   ";
-
-	// $getquery = '   SELECT * FROM `games`, `contract`, `contractstatus`
-	// where contractstatus.ContractID = ' . $_GET['ContractID'] . '   ';
+	$getquery = '
+	SELECT * FROM contract 
+	inner join users on contract.UserID = users.UserID
+	inner join games on contract.GameID = games.GameID
+	-- inner join contractstatus on contract.ContractID = contractstatus.ContractID
+	-- where contract.ContractID = "132"
+	where contract.ContractID = ' . $_GET['ContractID'] . '
+	';
 
 	$stmt = $conn->prepare($getquery);
 	$stmt->execute();
 	$getresult = $stmt->fetch(PDO::FETCH_ASSOC);
-	// $bookresult = $conn->query($contentquery);
 	?>	
 
 	<?php
+
+	// foreach($getresult as $row) {
 	echo'
-	<form class="add" action="../model/update_book.php?ContractID=' . $getresult['ContractID'] . '" method="post">
+	<form class="contract" action="../controller/update_process.php?ContractID=' . $_GET['ContractID'] . '" method="post">
 
-	<label>User</label>
-	<input value="' . $getresult['FirstName'] . '" type="text" name="GameTitle" placeholder="GameTitle">
+	<h4 class="center">Contract for ' . $getresult['FirstName'] . ' ' . $getresult['LastName'] . ' 
+	for ' . $getresult['GameTitle'] . '</h4>
 
-	<label>Game Title</label>
-	<input value="' . $getresult['GameTitle'] . '" type="text" name="GameTitle" placeholder="GameTitle">
 	<label>Current Status</label>
-	<input value="' . $getresult['CurrentStatus'] . '" type="text" name="CurrentStatus" placeholder="CurrentStatus">
+	<select name="Status">
+	<option selected>' . $getresult['Status'] . '</option>
+	<option disabled></option>
+	<option>Awaiting Confirmation</option>
+	<option>Payment Recieved</option>
+	<option>In Progress</option>
+	<option>Completed</option>
+	</select>
 
 	<label>Payment Amount</label>
-	<input value="' . $getresult['PaymentAmount'] . '" type="text" name="PaymentAmount" placeholder="PaymentAmount">
+	<label>Payment Amount</label>
+	<input value="' . $getresult['PaymentAmount'] . '" type="text" name="PaymentAmount" placeholder="Payment Amount">
 
-	<input type="submit" value="Update Contract"</input>
+	<label>Time Given</label>
+	<input value="' . $getresult['TimeGiven'] . '" type="text" name="TimeGiven" placeholder="Time Given">
+
+	<div class="submit">
+	<input class="sub waves-effect waves-light btn-large" type="submit" name="submit" value="Update Contract!">
+      	</div>
 	</form>';
-	''
+	// }
 	?>
 
 <?php
