@@ -24,6 +24,7 @@ $getresult = $stmt->fetch(PDO::FETCH_ASSOC);
 // set variables
 $email = ($_POST['Email']);
 $role = ($getresult['Role']);
+$ID =  ($getresult['UserID']);
 
 // if it exists
 if (count($result) ) {
@@ -31,6 +32,7 @@ if (count($result) ) {
 	$_SESSION['LoggedIn'] = true;
 	$_SESSION['CurrentUser'] = $email;
 	$_SESSION['Role'] = $role;
+	$_SESSION['UserID'] = $ID;
 	echo "Correct login!";
 	header('Location: ../view/ActiveRequests.php');
 }
