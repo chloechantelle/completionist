@@ -4,7 +4,7 @@
             <div class="row">
               <div class="col l6 s12">
               </div>
-              <div class="col l4 offset-l2 s12">
+              <div id="debug" class="col l4 offset-l2 s12">
                 <h5 class="white-text">Debug</h5>
                 <p>
                   <?php
