@@ -5,6 +5,7 @@
 	session_start();
 	include 'model/db.php';
 	include 'view/header.php';		
+  include 'view/navigation.php'; 
 	// $_SESSION["beep"] = 'boop';
       // session_unset(); 
       // session_destroy(); 
@@ -12,53 +13,18 @@
 
 	<!-- content -->
 
-<?php
-
-if (isset($_SESSION['LoggedIn'])) {
-    // unset($_SESSION['LoggedIn']);
-     include 'view/navigation.php'; 
-    ?><style>#download-button {display: none;}</style><?php
-}
-else {
-   include 'view/pubnav.php'; 
-}
-
-// if loggedin is false; show public navbar
-// $log_session = $_SESSION['LoggedIn'];
-// if($log_session == false) {
-// 	include 'pubnav.php';	
-// }
-// else{
-// 	include 'view/navigation.php';	
-// }
-
-// if session empty show message to prevent error
-// if(isset($_SESSION['LoggedIn']) && !empty($_SESSION['LoggedIn'])) {  
-//   $_SESSION["LoggedIn"] = 'yup!';
-// }
-// else{
-//   $_SESSION["LoggedIn"] = 'nope!';
-// }
-// if(isset($_SESSION['Role']) && !empty($_SESSION['Role'])) {  
-//   $_SESSION["Role"] = 'yup!';
-// }
-// else{
-//   $_SESSION["Role"] = 'nope!';
-// }
-?>
-
 <!-- title section -->
 <div class="main">
 <!-- <h1 class="header center">THE COMPLETIONIST</h1> -->
       <div class="row center">
-        <h5 class="header col s12 light">For the gamer with too many unearned achievements and not enough time.</h5>
+        <h5 class="header col s12 light">For the gamer with too many unearned achievements and not enough time</h5>
       </div>
-      <div class="row center">        
-        <a href="#register" id="download-button" class="btn btn-floating pulse">Register</a>
+      <div class="row center">     
+        <a href="#register" id="download-button" class="btn btn-floating pulse modal-trigger">Register</a>
       </div>    
 </div>
 
-  <div class="row">
+  <div class="inforow row">
         <div id="info" class="col s12 m4 info">
           <div class="icon-block">
             <h2 class="center pink-text text-lighten-3"><i class="fas fa-exchange-alt"></i></h2>
@@ -87,6 +53,32 @@ else {
         </div>
 
       </div>
+
+<div class="games row">
+
+<h3>Games available to complete:</h3>
+
+<div class="carousel">
+    <a class="carousel-item" href="#one!"><img src="view/img/games/bloodborne.jpg"></a>
+    <a class="carousel-item" href="#two!"><img src="view/img/games/silenthill.jpg"></a>
+    <a class="carousel-item" href="#three!"><img src="view/img/games/nioh.jpg"></a>
+    <a class="carousel-item" href="#four!"><img src="view/img/games/ninjagaiden.jpg"></a>
+  </div>
+
+</div>      
+
+<div class="moreinfo row">
+
+<h3>More info:</h3>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+</div> 
 
 <?php
   if(isset($_POST['SubmitButton'])){ //check if form was submitted
@@ -210,7 +202,5 @@ else {
 	<?php
 	include 'view/footer.php';
 	?>	
-
-	<script src="view/javascript.js"></script>
 
 </body>
