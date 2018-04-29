@@ -1,8 +1,9 @@
 # Completionist
 WIP Project
+
 Users will be able to request an admin (The Completionist) to complete (acquire trophies/achievements) for them in a video game.
 
-![Preview](https://github.com/chloechantelle/blush/blob/master/view/img/preview.gif "Preview")
+![Preview](https://github.com/chloechantelle/completionist/blob/master/view/img/preview.gif "Preview")
 
 # To Do
 
