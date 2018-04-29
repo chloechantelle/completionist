@@ -2,20 +2,8 @@
 session_start();	
 include '../model/db.php';  
 include 'header.php';	
-// include '../navigation.php';
+include 'navigation.php';
 ?>	
-
-<?php
-
-if (isset($_SESSION['LoggedIn'])) {
-    // unset($_SESSION['LoggedIn']);
-     include 'navigation.php'; 
-}
-else {
-   include 'pubnav.php'; 
-}
-
-?>
 
 <style><?php include '../view/style.css';?></style>	
 <script src="../view/javascript.js"></script>
@@ -24,45 +12,78 @@ else {
 
 	<?php
 
-	// $activequery = " SELECT contract.*, contractstatus.*, games.*
-	// FROM contract JOIN contractstatus ON contractstatus.GameID = contract.GameID JOIN games ON games.GameID = contractstatus.GameID ";
+// set ID variable for current users ID
+$ID = $_SESSION['UserID'];
+$role = $_SESSION['Role'];
 
-	// $activequery = " SELECT * FROM `games`, `contract`, `contractstatus` ";
+// if admin then show all contracts
+if (isset($_SESSION['Role']) && $_SESSION['Role'] == 'Admin') {
 
-  $activequery = ' SELECT contract.Status, contract.GameID, games.GameTitle, contract.TimeGiven, contract.PaymentAmount
+$adminquery = ' SELECT contract.ContractID, contract.PaymentDate, games.Cover, contract.Status, contract.GameID, games.GameTitle, contract.TimeGiven, contract.PaymentAmount
 FROM contract
 INNER JOIN games
-ON contract.GameID=games.GameID where contract.Status <> "Completed" ';
+ON contract.GameID=games.GameID
+where contract.Status <> "Completed" ';
+}
 
-	$stmt = $conn->prepare($activequery);
-	$stmt->execute();
-	$activeresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	?>
+// // else if customer then grab customers contracts
+elseif (isset($_SESSION['Role']) && $_SESSION['Role'] == 'Customer') {
+
+$adminquery = ' SELECT contract.ContractID, contract.PaymentDate, games.Cover, contract.Status, contract.GameID, games.GameTitle, contract.TimeGiven, contract.PaymentAmount
+FROM contract
+INNER JOIN games
+ON contract.GameID=games.GameID
+where contract.Status <> "Completed" and contract.UserID = " ' . $ID . ' " ';
+
+}
+
+else {
+	header('Refresh: 3; URL=../index.php');
+}
+
+$stmt = $conn->prepare($adminquery);
+$stmt->execute();
+$activeresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
 
 		<?php 
 		foreach($activeresult as $row) {
 			echo'
 
-<div class="row">
-<div class="col s12 m7">
-<div class="card small">
+<div class="requestrow row">
+<div class="requestcol col s12 m7">
+<div class="requestcard card small">
 <div class="card-image">
-	<img src="../view/img/sample.png">
+	<img src="' . $row['Cover'] . '">
 	<span class="card-title">' . $row['GameTitle'] . '</span>
 </div>
 <div class="card-content">
 <p>
-            ' . $row['TimeGiven'] . ' •
-            $' . $row['PaymentAmount'] . ' •              
-	' . $row['Status'] . '
+	' . $row['ContractID'] . ' •
+            ' . $row['TimeGiven'] . ' hrs given •
+            $' . $row['PaymentAmount'] . ' cost •              
+            Paid on: ' . $row['PaymentDate'] . ' •   
+			' . $row['Status'] . '
 </p>
+<div class="submit submitupdate">
+<a href="UpdateContract.php?ContractID=' . $row['ContractID'] . '" class="sub waves-effect waves-light btn-large right"><i class="material-icons left">update</i>Update Contract</a>
+</div>
 </div>            
 </div>
 </div>
 </div>			
 			
 ';}?>	
+
+<!-- <a href="UpdateContract.php?ContractID=' . $row['ContractID'] . '" class="sub waves-effect waves-light btn-large right"><i class="material-icons left">update</i>Update Contract</a> -->
 		
+<div id="update" class="modal">
+<div class="modal-content">
+
+<?php
+include 'UpdateContract.php?ContractID=' . $row['ContractID'] . '';
+?>
 
 <?php 
 		// foreach($activeresult as $row) {
@@ -77,7 +98,6 @@ ON contract.GameID=games.GameID where contract.Status <> "Completed" ';
 		// 	</div></div>';}
 ?>	
 
-
-			<?php
-			include '../view/footer.php';
-			?>	
+<?php
+include '../view/footer.php';
+?>	
