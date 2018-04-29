@@ -2,25 +2,13 @@
 session_start();
 include '../model/db.php';  
 include 'header.php'; 	
-// include '../navigation.php';
+include 'navigation.php';
 ?>	
-
-<?php
-if (isset($_SESSION['LoggedIn'])) {
-    // unset($_SESSION['LoggedIn']);
-     include 'navigation.php'; 
-}
-else {
-   include 'pubnav.php'; 
-   ?><style>.contact {display: none;}</style><?php
-}
-
-?>
 
 <style><?php include '../view/style.css';?></style>	
 <script src="../view/javascript.js"></script>
 
-	<div class="content">
+<div class="content">
 
 <?php
 	$adminquery = ' SELECT * FROM `users` WHERE `role` = "Admin"  ';
@@ -67,7 +55,7 @@ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
               <th>Game</th>
               <th>Time Given</th>
               <th>Payment Amount</th>
-              <th>Current Status</th>
+              <th>Status</th>
           </tr>
         </thead>
 
@@ -78,9 +66,10 @@ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
   echo'
           <tr>
             <td>' . $game['GameTitle'] . '</td>              
-            <td>' . $game['TimeGiven'] . '</td>              
+            <td>' . $game['TimeGiven'] . ' hours</td>              
             <td>$' . $game['PaymentAmount'] . '</td>              
-            <td>' . $game['Status'] . '</td>              
+            <td>' . $game['Status'] . '<i class="material-icons right">event_available</i>
+</td>              
           </tr>
           ';}?>
 
