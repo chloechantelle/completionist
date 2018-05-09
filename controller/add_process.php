@@ -14,19 +14,26 @@ include '../view/navigation.php';
 
 <?php
 
+// sanitize variables
+$beforedate = $_POST['Date'];
+$beforeamount = $_POST['PaymentAmount'];
+$beforetime = $_POST['TimeGiven'];
+
+// sanitize
+$date = filter_var($beforedate, FILTER_SANITIZE_STRING);
+$amount = filter_var($beforeamount, FILTER_SANITIZE_STRING);
+$time = filter_var($beforetime, FILTER_SANITIZE_STRING);
+
 // set variables
-$date = $_POST['PaymentDate'];
-$amount = $_POST['PaymentAmount'];
-$time = $_POST['TimeGiven'];
 $status = $_POST['Status'];
-// $gameID = $_POST['GameID'];
 
 // create contract
-$insert_sql = "INSERT INTO contract (PaymentDate, PaymentAmount, TimeGiven, Status, GameID, UserID) 
+$insert_sql = "INSERT INTO contract (Date, PaymentAmount, TimeGiven, Status, GameID, UserID) 
 VALUES
-(  '" . $_POST['PaymentDate'] . "',
-'" . $_POST['PaymentAmount'] . "',
-'" . $_POST['TimeGiven'] . "',
+(
+  '" . $date . "',
+'" . $amount . "',
+'" . $time . "',
 '" . $_POST['Status'] . "', 
 '" . $_POST['GameID'] . "',
 '" . $_POST['UserID'] . "'
@@ -46,12 +53,12 @@ echo '
 </div>
 ';
 
-// '" . $_POST['PaymentDate'] . "',
+// '" . $_POST['Date'] . "',
 // '" . $_POST['GameTitle'] . "',
 // '" . $_POST['PaymentAmount'] . "'
 
 // INSERT INTO 
-// contract(PaymentDate, PaymentAmount)
+// contract(Date, PaymentAmount)
 // values ('4/4/4', '50');
 
 // insert into

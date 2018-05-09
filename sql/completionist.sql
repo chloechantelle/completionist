@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2018 at 08:54 AM
+-- Generation Time: May 07, 2018 at 05:56 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `contract` (
   `ContractID` int(20) UNSIGNED NOT NULL,
-  `PaymentDate` varchar(10) NOT NULL,
+  `Date` varchar(10) NOT NULL,
   `PaymentAmount` int(5) NOT NULL,
   `TimeGiven` varchar(10) NOT NULL,
   `Status` varchar(30) NOT NULL,
@@ -42,12 +42,21 @@ CREATE TABLE `contract` (
 -- Dumping data for table `contract`
 --
 
-INSERT INTO `contract` (`ContractID`, `PaymentDate`, `PaymentAmount`, `TimeGiven`, `Status`, `GameID`, `UserID`) VALUES
-(132, '23/2/18', 50, '2', 'In Progress', 2, 2),
+INSERT INTO `contract` (`ContractID`, `Date`, `PaymentAmount`, `TimeGiven`, `Status`, `GameID`, `UserID`) VALUES
+(132, '23/2/18', 403, '4', 'Awaiting confirmation', 2, 2),
 (134, '27/04/18', 60, '60', 'Awaiting confirmation', 3, 2),
-(135, '2/2/18', 50, '50', 'Completed', 1, 2),
 (136, '4/4/18', 1, '2', 'Finishing', 3, 1),
-(147, '', 0, '', 'Submitted', 4, 2);
+(147, '', 0, '', 'Submitted', 4, 2),
+(148, 'May 05, 20', 359, '1', 'Awaiting confirmation', 4, 35),
+(150, '', 0, '', 'Awaiting Confirmation', 3, 38),
+(151, 'May 14, 20', 500, '50', 'In Progress', 3, 38),
+(152, '05/05/2018', 88, '888', 'Completed', 3, 1),
+(154, '05/05/2018', 70, '739', 'Completed', 5, 1),
+(155, '05/05/2018', 70, '746', 'Completed', 6, 1),
+(156, '05/05/2018', 300, '3178', 'Completed', 7, 1),
+(157, '05/05/2018', 400, '480', 'Completed', 8, 1),
+(158, '05/05/2018', 300, '342', 'Completed', 9, 1),
+(159, '05/05/2018', 700, '732', 'Completed', 10, 1);
 
 -- --------------------------------------------------------
 
@@ -68,10 +77,16 @@ CREATE TABLE `games` (
 --
 
 INSERT INTO `games` (`GameID`, `GameTitle`, `DateReleased`, `GamePlatform`, `Cover`) VALUES
-(1, 'Nioh', '2017-02-07', 'PS4', 'http://localhost/completionist/view/img/games/Nioh.jpg'),
-(2, 'Ninja Gaiden', '2005-09-20', 'Xbox 360', 'http://localhost/completionist/view/img/games/NinjaGaiden.jpg'),
-(3, 'Bloodborne', '2015-03-24', 'PS4', 'http://localhost/completionist/view/img/games/Bloodborne.jpg'),
-(4, 'Silent Hill: Homecoming', '2008-09-30', 'PC', 'http://localhost/completionist/view/img/games/SilentHill.jpg');
+(1, 'Nioh', '2017-02-07', 'PS4', '../view/img/games/Nioh.jpg'),
+(2, 'Ninja Gaiden', '2005-09-20', 'Xbox 360', '../view/img/games/NinjaGaiden.jpg'),
+(3, 'Bloodborne', '2015-03-24', 'PS4', '../view/img/games/Bloodborne.jpg'),
+(4, 'Silent Hill: Homecoming', '2008-09-30', 'PC', '../view/img/games/SilentHill.jpg'),
+(5, 'Batman', '2016-08-02', 'PS4', '../view/img/games/batman.png'),
+(6, 'Far Cry Primal', '2016-02-23', 'PS4', '../view/img/games/farcry.jpg'),
+(7, 'Killing Floor 2', '2016-11-18', 'PS4', '../view/img/games/killingfloor.jpg'),
+(8, 'Fallout 4', '2015-11-20', 'PS4', '../view/img/games/fallout.jpg'),
+(9, 'Final Fantasy 15', '2016-11-29', 'PS4', '../view/img/games/finalfantasyxv.jpg'),
+(10, 'Skyrim', '2011-11-11', 'PS4', '../view/img/games/skyrim.png');
 
 -- --------------------------------------------------------
 
@@ -137,12 +152,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contract`
 --
 ALTER TABLE `contract`
-  MODIFY `ContractID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
+  MODIFY `ContractID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
 --
 -- AUTO_INCREMENT for table `games`
 --
 ALTER TABLE `games`
-  MODIFY `GameID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `GameID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `users`
 --

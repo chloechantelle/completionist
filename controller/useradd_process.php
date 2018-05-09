@@ -18,7 +18,7 @@ include '../view/navigation.php';
 $ID = $_SESSION['UserID'];
 
 // create contract
-$insert_sql = "INSERT INTO `contract` (`ContractID`, `PaymentDate`, `PaymentAmount`, `TimeGiven`, `Status`, `GameID`, `UserID`) 
+$insert_sql = "INSERT INTO `contract` (`ContractID`, `Date`, `PaymentAmount`, `TimeGiven`, `Status`, `GameID`, `UserID`) 
 VALUES
 ( NULL, '', '', '', 'Submitted', 
 '" . $_POST['GameID'] . "',
@@ -41,12 +41,12 @@ echo '
 </div>
 ';
 
-// '" . $_POST['PaymentDate'] . "',
+// '" . $_POST['Date'] . "',
 // '" . $_POST['GameTitle'] . "',
 // '" . $_POST['PaymentAmount'] . "'
 
 // INSERT INTO 
-// contract(PaymentDate, PaymentAmount)
+// contract(Date, PaymentAmount)
 // values ('4/4/4', '50');
 
 // insert into

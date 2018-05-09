@@ -33,8 +33,9 @@ if (count($result) ) {
 	$_SESSION['CurrentUser'] = $email;
 	$_SESSION['Role'] = $role;
 	$_SESSION['UserID'] = $ID;
+	$_SESSION['Debug'] = 'Off';
 	echo "Correct login!";
-	header('Location: ../view/ActiveRequests.php');
+	header('Location: ../view/about.php');
 }
 
 // if it doesn't exist

@@ -1,106 +1,127 @@
 <body>
 
-  <?php
-<<<<<<< HEAD
-// include 'header.php';   
-=======
+<script src="../view/javascript.js"></script>
 
->>>>>>> origin/master
+  <?php
+// include 'header.php';   
 // redirect to root folder
 $PHP_SELF=$_SERVER['PHP_SELF'];
 $Root='http://'.$_SERVER['HTTP_HOST'].'/completionist'.substr($PHP_SELF,0,strrpos($PHP_SELF,''));
 
+
+// if is checked
+if (isset($_SESSION['Debug']) && $_SESSION['Debug'] == 'On') {
+// show debug
+?>
+<style>  
+#debug { display: block;}
+</style>
+<?php  
+// debugOn();
+// console.log('on');
+}
+else {
+// hide debug
+?>
+<style>  
+#debug { display: none;}
+</style>
+<?php
+// debugOff();
+// console.log('off');
+}
+
 if (isset($_SESSION['Role']) && $_SESSION['Role'] == 'Admin') {
     ?>
-    <style>.administrator { display: inherit;}</style>
-<<<<<<< HEAD
-    <style>.user { display: none !important;}</style>
-    <style>.both { display: inherit;}</style>
 
-=======
-    <style>.user { display: inherit;}</style>
->>>>>>> origin/master
-    <style>.contact {display: inherit;}</style>
-    <style>.log { display: none !important; }</style>
-    <style>.submitupdate { display: inherit;}</style>    
-    <style>#download-button {display: none;}</style>
+  <style>
+    .administrator { display: inherit;}
+    .user { display: none !important;}
+    .both { display: inherit;}
+
+    .contact {display: inherit;}
+    .log { display: none !important; }
+    .submitupdate { display: inherit;}    
+    .submitpay { display: none;}    
+    #download-button {display: none;}
+  </style> 
 
     <?php
+    $email = $_SESSION['CurrentUser'];
 }
 elseif (isset($_SESSION['Role']) && $_SESSION['Role'] == 'Customer') {
     ?>
-    <style>.administrator { display: none; }</style>
-    <style>.user { display: inherit;}</style>
-<<<<<<< HEAD
-    <style>.both { display: inherit;}</style>
+    <style>
+    .administrator { display: none !important; }
+    .user { display: inherit !important;}
+    .both { display: inherit !important;}
 
-=======
->>>>>>> origin/master
-    <style>.contact {display: inherit;}</style>
-    <style>.log { display: none;}</style>
-    <style>.submitupdate { display: none;}</style>   
-    <style>#download-button {display: none;}</style> 
+    .contact {display: inherit;}
+    .log { display: none;}
+    .submitupdate { display: none;}   
+    .submitpay { display: inherit;}    
+    #download-button {display: none;}
+  </style>
 
     <?php
+    $email = $_SESSION['CurrentUser'];
 }
 else {
    ?>
-   <style>.administrator { display: none !important; }</style>
-   <style>.user { display: none;}</style>
-<<<<<<< HEAD
-   <style>.both { display: none;}</style>
 
-=======
->>>>>>> origin/master
-   <style>.log { display: inherit;}</style>
-   <style>.contact {display: none !important;}</style>
-   <style>.submitupdate { display: none;}</style>    
+   <style>
+   .administrator { display: none !important; }
+   .user { display: none !important;}
+   .both { display: none !important;}
+ 
+   .log { display: inherit;}
+   .contact {display: none !important;}
+   .submitupdate { display: none;}
+   .submitpay { display: none;}    
+ </style>    
+
    <?php
+   $email = null;
 }
 
 ?>
 
 <?php echo'
 
-<<<<<<< HEAD
+
 <ul id="dropdown1" class="dropdown-content">
 <li><a class="both" href=" ';
 echo $Root;
-echo '/view/Settings.php"><i class="material-icons left">account_circle</i>
+echo '/view/settings.php"><i class="material-icons left">account_circle</i>
 Settings</a></li>
 
-<li><a class="user" href=" ';
+<li class="user"><a href=" ';
 echo $Root;
-echo '/view/ActiveRequests.php"><i class="material-icons left">account_circle</i>
-Your Contracts</a></li>
+echo '/view/requests.php"><i class="material-icons left">account_circle</i>Your Contracts</a></li>
+
+<li class="administrator"><a href=" ';
+      echo $Root;
+      echo '/view/requests.php"><i class="material-icons left">event_note</i>Active Requests</a></li>';
+echo'      
 
 <li><a class="both" href=" ';
 echo $Root;
 echo '/controller/logout_process.php"><i class="material-icons left">exit_to_app</i>Logout</a></li>
 </ul>
 
-<div class="navbar-fixed">
-  <nav>
-    <div class="nav-wrapper">
-=======
+
+
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">
 
       <a href=" ';
       echo $Root;
-      echo '/index.php" class="brand-logo">The Completionist</a>';
-      echo' 
-      
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
->>>>>>> origin/master
-
-      <a href=" ';
+      echo '/index.php" class="brand-logo"><img class="logo" src=" ';
       echo $Root;
-      echo '/index.php" class="brand-logo">The Completionist</a>';
+      echo '/logo.png"></a>';
       echo'<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-<<<<<<< HEAD
 <ul class="right hide-on-med-and-down">
 
       <li><a class="log modal-trigger" href="#login"><i class="material-icons left">account_circle</i>Login</a></li>';
@@ -108,130 +129,58 @@ echo '/controller/logout_process.php"><i class="material-icons left">exit_to_app
 
       <li><a href=" ';
       echo $Root;
-      echo '/view/AdminProfile.php"><i class="material-icons left">info_outline</i>About</a></li>';
-=======
-      <li><a class="log" href="#login"><i class="material-icons left">account_circle</i>Login</a></li>';
-      echo'
-
-      <li><a href=" ';
-      echo $Root;
-      echo '/view/AdminProfile.php"><i class="material-icons left">account_circle</i>Completionist</a></li>';
-      echo' 
-
-      <li><a class="user" href=" ';
-      echo $Root;
-      echo '/view/ActiveRequests.php"><i class="material-icons left">event_note</i>Active Requests</a></li>';
->>>>>>> origin/master
-      echo' 
-
-      <li><a class="administrator" href=" ';
-      echo $Root;
-<<<<<<< HEAD
-      echo '/view/ActiveRequests.php"><i class="material-icons left">event_note</i>Active Requests</a></li>';
-
-$email = $_SESSION['CurrentUser'];
-
-=======
-      echo '/view/Contract.php"><i class="material-icons left">add_circle_outline</i>Create Contract</a></li>';
-      echo' 
-
-      <li><a class="administrator" href=" ';
-      echo $Root;
-      echo '/view/UpdateContract.php"><i class="material-icons left">update</i>Update Contract</a></li>';
-      echo' 
-
-      <li><a class="user" href=" ';
-      echo $Root;
-      echo '/controller/logout_process.php"><i class="material-icons left">exit_to_app</i>Logout</a></li>';
->>>>>>> origin/master
+      echo '/view/about.php"><i class="material-icons left">info_outline</i>About</a></li>';
       echo' 
 
      <li><a class="user" href=" ';
       echo $Root;
-      echo '/view/Submit.php"><i class="material-icons left">add_circle_outline</i>Submit Contract</a></li>';
+      echo '/view/submit.php"><i class="material-icons left">add_circle_outline</i>Submit Contract</a></li>';
       echo '
 
       <li><a class="administrator" href=" ';
       echo $Root;
-      echo '/view/Contract.php"><i class="material-icons left">add_circle_outline</i>Create Contract</a></li>
+      echo '/view/contract.php"><i class="material-icons left">add_circle_outline</i>Create Contract</a></li>
+
       <li><a class="both dropdown-trigger" data-target="dropdown1"><i class="material-icons left">account_circle</i>
       Welcome ' . $email . '!
-      <i class="material-icons right">arrow_drop_down</i></a></li>    
+      <i class="material-icons right">arrow_drop_down</i></a></li>  
+
     </ul>
     </div>
     </nav>
     
 <ul class="sidenav" id="mobile-demo">
 
-      <li><a class="log modal-trigger" href=" ';
-      echo $Root;
-      echo '/index.php#login"><i class="material-icons left">account_circle</i>Login</a></li>';
-      echo'
-
-<<<<<<< HEAD
-      <li><a href=" ';
-      echo $Root;
-      echo '/view/AdminProfile.php"><i class="material-icons left">account_circle</i>Completionist</a></li>';
-      echo' 
-
-      <li><a class="user" href=" ';
-      echo $Root;
-      echo '/view/ActiveRequests.php"><i class="material-icons left">event_note</i>Active Requests</a></li>';
-      echo' 
-
-      <li><a class="administrator" href=" ';
-      echo $Root;
-      echo '/view/Contract.php"><i class="material-icons left">add_circle_outline</i>Create Contract</a></li>';
-=======
-      <li><a class="log" href=" ';
-      echo $Root;
-      echo '/index.php#login"><i class="material-icons left">account_circle</i>Login</a></li>';
+      <li><a class="log modal-trigger" href="#login"><i class="material-icons left">account_circle</i>Login</a></li>';
       echo'
 
       <li><a href=" ';
       echo $Root;
-      echo '/view/AdminProfile.php"><i class="material-icons left">account_circle</i>Completionist</a></li>';
-      echo' 
-
-      <li><a class="user" href=" ';
-      echo $Root;
-      echo '/view/ActiveRequests.php"><i class="material-icons left">event_note</i>Active Requests</a></li>';
->>>>>>> origin/master
+      echo '/view/about.php"><i class="material-icons left">info_outline</i>About</a></li>';
       echo' 
 
       <li><a class="administrator" href=" ';
       echo $Root;
-<<<<<<< HEAD
-      echo '/view/UpdateContract.php"><i class="material-icons left">update</i>Update Contract</a></li>';
+      echo '/view/about.php"><i class="material-icons left">event_note</i>Active Requests</a></li>';
+
       echo' 
 
-      <li><a class="user" href=" ';
+     <li><a class="user" href=" ';
       echo $Root;
-      echo '/controller/logout_process.php"><i class="material-icons left">exit_to_app</i>Logout</a></li>';
-=======
-      echo '/view/Contract.php"><i class="material-icons left">add_circle_outline</i>Create Contract</a></li>';
-      echo' 
+      echo '/view/submit.php"><i class="material-icons left">add_circle_outline</i>Submit Contract</a></li>';
+      echo '
 
       <li><a class="administrator" href=" ';
       echo $Root;
-      echo '/view/UpdateContract.php"><i class="material-icons left">update</i>Update Contract</a></li>';
->>>>>>> origin/master
-      echo' 
+      echo '/view/contract.php"><i class="material-icons left">add_circle_outline</i>Create Contract</a></li>
 
-      <li><a class="user" href=" ';
-      echo $Root;
-      echo '/controller/logout_process.php"><i class="material-icons left">exit_to_app</i>Logout</a></li>';
-      echo' 
 
-<<<<<<< HEAD
-=======
+     
 
->>>>>>> origin/master
       </ul>
   </nav>
 </div>  
 '?>
-<<<<<<< HEAD
 
 <script>
   $(document).ready(function(){
@@ -245,5 +194,3 @@ $('#login').modal();
 $('#register').modal();
 };
 </script>  
-=======
->>>>>>> origin/master
