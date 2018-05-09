@@ -1,5 +1,5 @@
 <?php
-// header('Refresh: 3; URL=../view/ActiveRequests.php');
+// header('Refresh: 2; URL=../view/ActiveRequests.php');
 ?>
 
 <?php	
@@ -38,9 +38,9 @@ $status = $_POST['Status'];
 
 // update contract
 $update = "UPDATE contract SET
-PaymentAmount =  '" . $_POST['PaymentAmount'] . "', 
+PaymentAmount =  '" . $pay . "', 
 TimeGiven =  '" . $time . "', 
-Status = '" . $_POST['Status'] . "' WHERE ContractID = ' " . $_GET['ContractID'] . " '
+Status = '" . $status . "' WHERE ContractID = ' " . $_GET['ContractID'] . " '
 ";
 // ' " . $_GET['ContractID'] . " '
 $stmt = $conn->prepare($update);
