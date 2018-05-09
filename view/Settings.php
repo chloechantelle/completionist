@@ -1,12 +1,21 @@
 <?php	
 session_start();
+
+// if user isn't admin, redirect to login
+
+if (isset($_SESSION['Role']) ) {
+  }
+else {
+  header("Location: ../index.php");
+}
+
 include '../model/db.php';  
 include 'header.php';
 include 'navigation.php';
 ?>	
-<style><?php include '../view/style.css';?></style>	
-<script src="../view/javascript.js"></script>
 
+<script src="../view/javascript.js"></script>
+<style><?php include '../view/style.css';?></style>	
 
   <div class="row">
     <div class="settings right col s12 m9 l10">
@@ -19,34 +28,38 @@ include 'navigation.php';
 
   <div class="switch">
     <label for="option1">Off
-    <input onclick="switchfunction()" type="checkbox" id="option1">
+    <input onClick="buttonfunction()" type="checkbox" id="option1">
     <span class="lever"></span>
     On
   </label>
   </div>
+
 </div>
 
-<!-- <div id="debugg">
-This is my DIV element.
-</div> -->
+<?php
+echo 'Debug:';
+echo $_SESSION['Debug'];
+?>
 
-        <p>Show or hide the debugging information at the bottom of the page.</p>
-      </div>
+<p>Show or hide the debugging information at the bottom of the page.</p>      
 
 <div class="submit">
- <input class="btn" type="submit" name="submit" value="Save changes">
+ <input id="settingsbutt" class="btn" type="submit" name="submit" value="Save changes">
 </div>      
-
+</div>
 </form>
 
       <div id="2" class="section scrollspy">
-        <h1>Option 2</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+        <h1>All users</h1>
+
+        <!-- not via ajax -->
+        <!-- <a href="#" id="get-data">List users (function)</a> -->
+        <!-- <div id="show-data"></div>         -->
+
+        <!-- via ajax -->
+        <a href="#" onClick="users();">Lists users (ajax)</a>
+        <div id="data"></div>
+
       </div>
 
       <div id="3" class="section scrollspy">
@@ -61,58 +74,70 @@ This is my DIV element.
     </div>
     <div class="col hide-on-small-only m3 l2">
       <ul class="spy left section table-of-contents">
-        <li><a href="#1">Option 1</a></li>
-        <li><a href="#2">Option 2</a></li>
+        <li><a href="#1">Debugging</a></li>
+        <li><a href="#2">All users</a></li>
         <li><a href="#3">Option 3</a></li>
       </ul>
     </div>
   </div>
-        
-<!-- remember checkbox into localStorage         -->
+
 <script>
-var formValues = JSON.parse(localStorage.getItem('formValues')) || {};
-var $checkboxes = $("#checkbox-container :checkbox");
-var $button = $("#checkbox-container button");
 
-function allChecked(){
-  return $checkboxes.length === $checkboxes.filter(":checked").length;
-}
+function users() {  
+$.ajax({
+        type: "GET",
+        url: "user.php",
+        // url: "users.json",
+        data: "data",   
+        dataType: "json",     
+        success: function(data) {   
+            // console.log(data); 
+          if (data) {            
+            // alert('Success!');
+            document.getElementById("data").innerHTML = JSON.stringify(data);
+            // console.log(JSON.stringify(data)); 
+            // console.log(data);      
+                 // decode and show?
+            // console.log($encode);
+            }        
+            else {
+              alert('Fail!');
+            }    
+        },
+        error: function(error) {
+            alert('Error');
+            console.log(error);
+            console.log(data);
+            document.getElementById("data").innerHTML = data;
+        }
+    });
+};
+  
+// $(document).ready(function () {
+//   $('#get-data').click(function () {
+//     var showData = $('#show-data');
 
-function updateButtonStatus(){
-  $button.text(allChecked()? "Uncheck all" : "Check all");
-}
+//     $.getJSON('users.json', function (data) {
+//       // console.log(data);
 
-function handleButtonClick(){
-  $checkboxes.prop("checked", allChecked()? false : true)
-}
+//       var users = data.users.map(function (item) {
+//         return item.Email + ': ' + item.FirstName;
+//       });
 
-function updateStorage(){
-  $checkboxes.each(function(){
-    formValues[this.id] = this.checked;
-  });
+//       showData.empty();
 
-  formValues["buttonText"] = $button.text();
-  localStorage.setItem("formValues", JSON.stringify(formValues));
-}
+//       if (users.length) {
+//         var content = '<li>' + users.join('</li><li>') + '</li>';
+//         var list = $('<ul />').html(content);
+//         showData.append(list);
+//       }
+//     });
 
-$button.on("click", function() {
-  handleButtonClick();
-  updateButtonStatus();
-  updateStorage();
-});
+//     showData.text('loading...');
+//   });
+// });
 
-$checkboxes.on("change", function(){
-  updateButtonStatus();
-  updateStorage();
-});
-
-// On page load
-$.each(formValues, function(key, value) {
-  $("#" + key).prop('checked', value);
-});
-
-$button.text(formValues["buttonText"]);
-</script> 
+</script>
 
 <?php
 			include '../view/footer.php';
