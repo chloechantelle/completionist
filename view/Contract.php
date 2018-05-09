@@ -1,5 +1,14 @@
 <?php	
 session_start();
+
+// if user isn't admin, redirect to login
+
+if (isset($_SESSION['Role']) && $_SESSION['Role'] == 'Admin') {
+  }
+else {
+  header("Location: ../index.php");
+}
+
 include '../model/db.php';  
 include 'header.php';
 include 'navigation.php';
@@ -30,8 +39,8 @@ $userresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?php 
     foreach($gameresult as $game) {
       echo'
-      <option value="' . $game['GameID'] . '" data-icon="../view/img/pachimari.png" class="circle">
-      "' . $game['GameTitle'] . '", "' . $game['GameID'] . '"
+      <option value="' . $game['GameID'] . '" data-icon="' . $game['Cover'] . '" class="circle">
+      ' . $game['GameTitle'] . '
       </option>'      
     ;}?>
 </select>
@@ -42,17 +51,26 @@ $userresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach($userresult as $user) {
       echo'
       <option value="' . $user['UserID'] . '" data-icon="../view/img/pachimari.png" class="circle">
-      "' . $user['Email'] . '", "' . $user['UserID'] . '"
+      ' . $user['Email'] . '
       </option>'      
     ;}?>
 </select>
 
   </div>
 
-	<input type="text" id="PaymentDate" name="PaymentDate" placeholder="Payment Date">
+	<input type="text" class="datepicker" id="Date" name="Date" placeholder="Current Date">
 	<input type="text" id="PaymentAmount" name="PaymentAmount" placeholder="Payment Amount">
 	<input type="text" id="TimeGiven" name="TimeGiven" placeholder="Approximate Time To Finish (in hours)">
-       <input type="text" id="Status" name="Status" placeholder="Current Status">
+
+        <label>Current Status</label>
+          <select id="Status" name="Status">
+          <!-- <option selected>' . $getresult['Status'] . '</option> -->
+          <!-- <option disabled></option> -->
+          <option>Awaiting Confirmation</option>
+          <option>Payment Recieved</option>
+          <option>In Progress</option>
+          <option>Completed</option>
+          </select>
 
        <div class="submit">
 	<input class="sub waves-effect waves-light btn-large" type="submit" name="submit" value="Create Contract!">
