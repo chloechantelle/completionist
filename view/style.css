@@ -1,17 +1,72 @@
-﻿/*colors*/
-.pink-text.text-lighten-3 {
+	
+	/* accent color */
+
+.pink-text.text-lighten-3, .datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done {
     color: #1e1f40 !important;
 }
 
-.btn-floating, .btn, .btn-large, .btn-large:hover, .btn:hover, .btn-large:focus, .btn-large:active, .waves-button-input {
+.btn, .btn-large, .btn-large:hover, .btn:hover, .btn-large:focus, .btn-large:active, .waves-button-input, .datepicker-date-display, .datepicker-table td.is-selected {
     color: #fff;
     background-color: #1e1f40;
 }
 
-.main {
-	background: url("img/controller.jpg");
-	background-size: cover;
-	padding: 250px 130px 300px 130px;	
+	/* main bg colors */
+
+.btn-floating {
+	background: #fff;
+	color: #000;
+}
+
+nav, .page-footer, .main, .main-left, .main-right {
+	background: #1e1f40;
+}
+
+	/* loading animation color */
+
+/*svg path,*/
+svg rect {
+  fill: #222;
+}
+
+#loading {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url('../view/img/loading.svg') 50% 50% no-repeat rgb(250,250,250);
+  /*background-size: 100px 82px;*/
+}
+
+#msg {
+	display: none;
+}
+
+#loader {
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    z-index: 9999;
+    text-align: center;
+    /*background: #fff;*/
+    height: 600px;
+    width: 600px;
+    display: none;
+ }
+
+
+.card.small {
+    height: 400px;
+} 
+
+input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default):focus:not([readonly]) {
+	border-color: #1e1f40;	
+	box-shadow: none;
+}
+
+.datepicker-table td.is-today {
+	color: #000;
 }
 
 .main h5 {
@@ -19,14 +74,70 @@
 	font-size: 30px;
 }
 
+.main-con {
+	/*width: 100%;*/
+	/*background: red;*/
+}
+
+.main {
+	/*padding: 250px 130px 300px 130px;	*/
+	/*padding: 100px;*/
+}
+
+.main-left, .main-right {
+	/*max-width: 200px;*/
+	width: 50%;
+	min-height: 900px;
+}
+
+.main-left {
+	text-align: center;
+}
+
+.main-left img {
+	max-width: 50%;
+	margin-top: 25%;	
+	transform: rotate(320deg);
+	animation: controller 2s infinite;
+}
+
+@keyframes controller {
+    0% {
+    	transform: rotate(320deg);
+    }
+    50% {
+    	transform: rotate(330deg);
+    }
+    100% {
+    	transform: rotate(320deg);
+    }
+}
+
+.main-right .row {
+	margin-top: 25%;	
+	text-align: left;
+}
+
+.main-right h5 {
+	/*text-align: left;*/
+}
+
+#settingsbutt {
+	/*display: none;*/
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+}
+
 .inforow {
-	padding: 100px;
+	padding: 400px 0px 400px 0px;
+	margin-top: 800px;
 }
 
 .games {
 	background: #1e1f40;
 	margin-bottom: 0px;
-	padding: 20px;
+	padding: 300px 0px 300px 0px;
 }
 
 .games h3 {
@@ -39,7 +150,7 @@
 .moreinfo {
 	background: #fff;
 	margin-bottom: 0px;
-	padding: 100px;
+	padding: 350px 0px 350px 0px
 }
 
 .moreinfo h3 {
@@ -49,17 +160,22 @@
 
 .moreinfo p {
 	padding: 20px;
-}
-
-.page-footer {
-	padding: 70px;
+	text-align: center;
 }
 
 /*nav*/
 
+.logo {
+	height: 65px;
+}
+
 nav, .page-footer {
-	background: #1e1f40;
 	/*text-align: left;*/
+	box-shadow: none;
+}
+
+.page-footer {
+	padding: 0px;
 }
 
 nav ul li.active, .page-footer .footer-copyright {
@@ -105,9 +221,13 @@ nav ul li.active, .page-footer .footer-copyright {
 	margin: 0 auto;
 }
 
+.content p, .content h3 {
+	padding: 20px;
+}
+
 .adminleft {
 	background: #eee;
-	width: 30%;
+	width: 100%;
 	float: left;		
 	text-align: center;
 	min-height: 700px;	
@@ -119,7 +239,7 @@ nav ul li.active, .page-footer .footer-copyright {
 
 .adminright {
 	/*background: pink;*/
-	width: 70%;
+	width: 100%;
 	float: right;
 	text-align: right;
 	min-height: 700px;
@@ -128,6 +248,23 @@ nav ul li.active, .page-footer .footer-copyright {
 
 .adminright table {
 	/*padding: 10px;*/
+}
+
+.adminright tr:hover {
+	cursor: pointer;
+	opacity: 0.6;
+}
+
+.text p, .text i {
+	font-size: 18px;
+}
+
+#more {
+	/*text-align: center;*/
+}
+
+.gameimg {
+	max-width: 300px;
 }
 
 .admin h1 {
@@ -194,6 +331,10 @@ background-color: #bbb;
 	background: #b6aac1;
 }
 
+.datepicker-table td.is-today {
+	border-bottom: 1px solid #000;
+}
+
 .btn-floating.btn-large i {
 	font-size: 35px;
  	margin-left: -9px;
@@ -248,7 +389,7 @@ input::placeholder {
 	color: #fff;
 }
 
-.submitupdate {
+.submitupdate, .submitpay {
 	margin-top: -20px;
 }
 
@@ -262,7 +403,7 @@ input::placeholder {
 	margin: 50px auto;
 	/*text-align: center;*/
 	background: #ddd;
-	font-weight: 900;
+	font-weight: 600;
 	padding: 40px;
 	width: 80%;
 }
@@ -353,9 +494,10 @@ footer .luv:hover:before, footer .luv:hover:after {
 
 .btn-floating {
     width: 100px;
-    height: 100px;
-    line-height: 85px;
-    font-weight: 900;
+    height: 50px;
+    border-radius: 0px;
+    line-height: 50px;
+    font-weight: 600;
     font-size: 17px;
 }
 
