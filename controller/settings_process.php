@@ -6,8 +6,22 @@
 ?>
 <?php
 
-	// echo "Email exists!";
-	$_SESSION['Debug'] = On;
+if (isset($_SESSION['Debug']) && $_SESSION['Debug'] == 'On') {
+	$_SESSION['Debug'] = 'Off';
+	// echo $_SESSION['Debug'];
+}
+elseif (isset($_SESSION['Debug']) && $_SESSION['Debug'] == 'Off') {
+	$_SESSION['Debug'] = 'On';
+	// echo $_SESSION['Debug'];
+}
+elseif(isset($_SESSION['Debug']) && !empty($_SESSION['Debug'])) {
+	$_SESSION['Debug'] = 'Off';
+	echo $_SESSION['Debug'];
+}
+else {
+	// $_SESSION['Debug'] = 'On';
+}
 	header('Location: ../view/Settings.php');
+
 
 ?>
