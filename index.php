@@ -15,13 +15,24 @@
 
 <!-- title section -->
 <div class="main">
-<!-- <h1 class="header center">THE COMPLETIONIST</h1> -->
+
+<div class="main-con">
+
+<div class="left main-left">
+<img src="http://localhost/completionist/view/img/vector.png">  
+<!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. -->
+</div>
+
+<div class="right main-right">
       <div class="row center">
         <h5 class="header col s12 light">For the gamer with too many unearned achievements and not enough time</h5>
-      </div>
-      <div class="row center">     
+        <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. -->
+      <!-- </div> -->
+      <!-- <div class="row center">      -->
         <a href="#register" id="download-button" class="btn btn-floating pulse modal-trigger">Register</a>
       </div>    
+</div>      
+</div>
 </div>
 
   <div class="inforow row">
@@ -39,7 +50,7 @@
             <h2 class="center pink-text text-lighten-3"><i class="fas fa-clock"></i></h2>
             <h5 class="center">Your Time is Important</h5>
 
-            <p class="light">By registering you'll be able to contact our working Completionist to get a quote for the game you want completed, securely and easily you'll send your chosen platforms account details and within 2-6 days that platinum will be yours.</p>
+            <p class="light">By registering you'll be able to contact our working Completionist to get a quote for the game you want completed, securely and easily you'll send your chosen platforms account details and within the contracts given time that platinum will be yours.</p>
           </div>
         </div>
 
@@ -58,11 +69,38 @@
 
 <h3>Games available to complete:</h3>
 
+
+<?php
+// images in folder ../, how to fix?
+
+// $carousel = ' 
+// SELECT *
+// FROM games ';
+// $stmt = $conn->prepare($carousel);
+// $stmt->execute();
+// $carouselresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// foreach($carouselresult as $caro) {
+// echo'
+// <img src="' . $caro['Cover'] . '">
+// <span class="card-title">' . $caro['GameTitle'] . '</span>
+// ';
+// }
+?>
+
 <div class="carousel">
     <a class="carousel-item" href="#one!"><img src="view/img/games/bloodborne.jpg"></a>
     <a class="carousel-item" href="#two!"><img src="view/img/games/silenthill.jpg"></a>
     <a class="carousel-item" href="#three!"><img src="view/img/games/nioh.jpg"></a>
-    <a class="carousel-item" href="#four!"><img src="view/img/games/ninjagaiden.jpg"></a>
+    <a class="carousel-item" href="#four!"><img src="view/img/games/batman.png"></a>
+    <a class="carousel-item" href="#five!"><img src="view/img/games/farcry.jpg"></a>
+    <a class="carousel-item" href="#six!"><img src="view/img/games/killingfloor.jpg"></a>
+    <a class="carousel-item" href="#seven!"><img src="view/img/games/fallout.jpg"></a>
+    <a class="carousel-item" href="#eight!"><img src="view/img/games/finalfantasyxv.jpg"></a>
+    <a class="carousel-item" href="#nine!"><img src="view/img/games/skyrim.png"></a>
+    <a class="carousel-item" href="#ten!"><img src="view/img/games/NinjaGaiden.jpg"></a>
+
+    
   </div>
 
 </div>      
@@ -71,12 +109,7 @@
 
 <h3>More info:</h3>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>All information entered on this website is secure and protected. Never worry about your friends finding out how lazy you are and how you didn't earn your platinums. No one needs to know!</p>
 
 </div> 
 
@@ -185,20 +218,9 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
   </form>
 </div>
 
-<!-- <div class="login">
-  <h1>Register</h1> 
-  <form action="controller/login_check.php" method="post">    
-    <input required type="text" name="Username" placeholder="Username">
-    <input required type="password" name="password" placeholder="Password">
-    <input type="submit" name="submit" value="Log in">
-  </form>
-<div class="notice">Don't have an account? <a href="view/register.php">Register here</a>.</div> 
-</div> -->
-
     </div>
   </div>
 
-	
 	<?php
 	include 'view/footer.php';
 	?>	
