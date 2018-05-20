@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2018 at 09:46 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Generation Time: May 20, 2018 at 09:31 AM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 7.1.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -41,7 +43,7 @@ CREATE TABLE `contract` (
 --
 
 INSERT INTO `contract` (`ContractID`, `Date`, `PaymentAmount`, `TimeGiven`, `Status`, `GameID`, `UserID`) VALUES
-(132, '23/2/18', 505, '4', 'Confirmed and Payed', 2, 2),
+(132, '23/2/18', 404, '4', 'Confirmed and Payed', 2, 2),
 (134, '27/04/18', 60, '60', 'Awaiting confirmation', 3, 2),
 (136, '4/4/18', 1, '2', 'Finishing', 3, 1),
 (147, '', 0, '', 'Submitted', 4, 2),
@@ -92,39 +94,13 @@ INSERT INTO `games` (`GameID`, `GameTitle`, `DateReleased`, `GamePlatform`, `Cov
 -- --------------------------------------------------------
 
 --
--- Table structure for table `upl`
---
-
-CREATE TABLE `upl` (
-  `ID` int(11) NOT NULL,
-  `img` varchar(100) NOT NULL,
-  `file` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `upl`
---
-
-INSERT INTO `upl` (`ID`, `img`, `file`) VALUES
-(8, 'favi.png', ''),
-(51, 'C:fakepathfavi.png', ''),
-(62, '', ''),
-(63, '', ''),
-(64, '', ''),
-(65, '', ''),
-(66, '', ''),
-(67, '', ''),
-(68, '', ''),
-(69, '', '');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `UserID` int(20) UNSIGNED NOT NULL,
+  `Role` varchar(20) NOT NULL,
+  `Avi` varchar(255) NOT NULL,
   `Password` varchar(30) NOT NULL,
   `FirstName` varchar(50) NOT NULL,
   `LastName` varchar(50) NOT NULL,
@@ -132,17 +108,16 @@ CREATE TABLE `users` (
   `Country` varchar(30) NOT NULL,
   `PSNID` varchar(50) DEFAULT NULL,
   `SteamID` varchar(50) DEFAULT NULL,
-  `XboxID` varchar(50) DEFAULT NULL,
-  `Role` varchar(20) NOT NULL
+  `XboxID` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`UserID`, `Password`, `FirstName`, `LastName`, `Email`, `Country`, `PSNID`, `SteamID`, `XboxID`, `Role`) VALUES
-(1, 'Password1', 'Jim', 'Doe', 'completionist@gmail.com', 'Australia', 'TheCompletionist', 'TheCompletionist', 'TheCompletionist', 'Admin'),
-(2, 'Password1', 'Ben', 'Doe', 'test@gmail.com', 'Australia', 'Test1', 'Test1', 'Test1', 'Customer');
+INSERT INTO `users` (`UserID`, `Role`, `Avi`, `Password`, `FirstName`, `LastName`, `Email`, `Country`, `PSNID`, `SteamID`, `XboxID`) VALUES
+(1, 'Admin', '../view/img/avi/fav.png ', 'Password1', 'Jim', 'Doe', 'completionist@gmail.com', 'Australia', 'TheCompletionist', 'TheCompletionist', 'TheCompletionist'),
+(2, 'Customer', '../view/img/avi/default.png', 'Password1', 'Ben', 'Doe', 'test@gmail.com', 'Australia', 'Test1', 'Test1', 'Test1');
 
 --
 -- Indexes for dumped tables
@@ -161,12 +136,6 @@ ALTER TABLE `contract`
 --
 ALTER TABLE `games`
   ADD PRIMARY KEY (`GameID`);
-
---
--- Indexes for table `upl`
---
-ALTER TABLE `upl`
-  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `users`
@@ -189,11 +158,6 @@ ALTER TABLE `contract`
 ALTER TABLE `games`
   MODIFY `GameID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
--- AUTO_INCREMENT for table `upl`
---
-ALTER TABLE `upl`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
@@ -206,8 +170,8 @@ ALTER TABLE `users`
 -- Constraints for table `contract`
 --
 ALTER TABLE `contract`
-  ADD CONSTRAINT `contract_ibfk_1` FOREIGN KEY (`GameID`) REFERENCES `games` (`GameID`),
-  ADD CONSTRAINT `contract_ibfk_2` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`);
+  ADD CONSTRAINT `contract_ibfk_1` FOREIGN KEY (`GameID`) REFERENCES `games` (`GameID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
