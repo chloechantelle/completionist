@@ -1,5 +1,5 @@
 <?php
-header('Refresh: 3; URL=../view/ActiveRequests.php');
+// header('Refresh: 3; URL=../view/about.php');
 ?>
 
 <?php	
