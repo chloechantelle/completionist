@@ -25,12 +25,16 @@ $userresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="input-field col s12 m6">
 
-<select name="GameID" class="icons">
-<option selected>Choose game</option>
+<select required name="GameID" class="icons">
+
+<option disabled>Choose game</option>
+
+<!-- <optgroup label="Choose game"> -->
+
 <?php 
     foreach($gameresult as $game) {
       echo'
-      <option value="' . $game['GameID'] . '" data-icon="../view/img/pachimari.png" class="circle">
+      <option value="' . $game['GameID'] . '" data-icon="' . $game['Cover'] . '" class="circle">
       ' . $game['GameTitle'] . '
       </option>'      
     ;}?>
@@ -41,7 +45,7 @@ $email = $_SESSION['CurrentUser'];
 $ID = $_SESSION['UserID'];
 ?>
 
-<select name="UserID" class="icons" disabled>
+<select required name="UserID" class="icons" disabled>
 <?php
 echo'
       <option value="' . $ID . '" data-icon="../view/img/pachimari.png" class="circle">
