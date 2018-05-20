@@ -1,5 +1,7 @@
+
 	<?php
 	session_start();
+	include 'header.php';
 
 // if user isn't admin, redirect to login
 
@@ -10,11 +12,16 @@ else {
 }
 	
 	include '../model/db.php';  
-	include 'header.php';	
 	include 'navigation.php';
 	?>
 	<!-- load CSS -->
-	<style><?php include '../view/style.css';?></style>
+	<style>
+	<?php include '../view/style.css';?>
+		select {
+			display: inherit;
+		}
+		/* js file/materialize not working? */
+	</style>
 	<!-- load JS -->
 	<script src="../view/javascript.js"></script>
 
@@ -47,23 +54,22 @@ else {
 
 	<h4 class="center">Contract for ' . $getresult['FirstName'] . ' ' . $getresult['LastName'] . ' 
 	for ' . $getresult['GameTitle'] . '</h4>
-	
-  <div class="input-field col s12">
-	<select id="Status" name="Status">
-	<option selected>' . $getresult['Status'] . '</option>
-	<option disabled></option>
-	<option>Awaiting Confirmation</option>
-	<option>Payment Recieved</option>
-	<option>In Progress</option>
-	<option>Completed</option>
-	</select>
-</div>
 
 	<label>Payment Amount</label>
 	<input value="' . $getresult['PaymentAmount'] . '" type="text" name="PaymentAmount" placeholder="Payment Amount">
 
 	<label>Time Given</label>
 	<input value="' . $getresult['TimeGiven'] . '" type="text" name="TimeGiven" placeholder="Time Given">
+
+        <label>Current Status</label>
+          <select id="Status" name="Status">
+          <option selected>' . $getresult['Status'] . '</option>
+          <option disabled></option>
+          <option>Awaiting Confirmation</option>
+          <option>Payment Recieved</option>
+          <option>In Progress</option>
+          <option>Completed</option>
+          </select>
 
 	</form>
 	<div class="submit">
