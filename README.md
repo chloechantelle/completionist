@@ -42,3 +42,10 @@ Customers will be able to request an admin (The Completionist) to complete (acqu
 # To Do
 
 * Notifications for updated contracts
+
+# Usage
+
+Admin: completionist@gmail.com/Password1
+User: test@gmail.com/Password1
+
+Also currently a wip at http://boop.chloechantelle.com/completionist
