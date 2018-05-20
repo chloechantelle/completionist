@@ -167,31 +167,31 @@
       	<!-- Email -->
         <div class="input-field col s6">
             <i class="fas fa-envelope-open prefix"></i>
-          <input id="icon_prefix" name="Email" type="text" class="validate">
+          <input required id="icon_prefix" name="Email" type="text" class="validate">
           <label for="icon_prefix">Email</label>
         </div>
         <!-- Password -->
         <div class="input-field col s6">
           <i class="fas fa-key prefix"></i>
-          <input id="icon_prefix" name="Password" type="password" class="validate">
+          <input required id="icon_prefix" name="Password" type="password" class="validate">
           <label for="icon_prefix">Password</label>
         </div>    
          <!-- First Name -->
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate">
+          <input required id="icon_prefix" type="text" class="validate">
           <label for="icon_prefix">First Name</label>
         </div>
          <!-- Last Name -->
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate">
+          <input required id="icon_prefix" type="text" class="validate">
           <label for="icon_prefix">Last Name</label>
         </div>            
          <!-- Country -->
         <div class="input-field col s6">
           <i class="fas fa-globe prefix"></i>
-          <input id="icon_prefix" type="text" class="validate">
+          <input required id="icon_prefix" type="text" class="validate">
           <label for="icon_prefix">Country</label>
         </div>
          <!-- PSN -->
