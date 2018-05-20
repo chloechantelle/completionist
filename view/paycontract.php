@@ -38,22 +38,32 @@ else {
 
 	// foreach($getresult as $row) {
 	echo'
-	<form class="contract" action="../controller/update_process.php?ContractID=' . $_GET['ContractID'] . '" method="post">
+	<form class="contract" action="../controller/pay_process.php?ContractID=' . $_GET['ContractID'] . '" method="post">
 
 	<h4 class="center">Pay for contract for ' . $getresult['FirstName'] . ' ' . $getresult['LastName'] . ' 
 	for ' . $getresult['GameTitle'] . '</h4>
 
-	Current Status:
-	' . $getresult['Status'] . ' <br>
+		<div class="message">
+	<p>Current Status:
+	' . $getresult['Status'] . ' </p>
 
-	Payment Amount:
-	' . $getresult['PaymentAmount'] . ' <br>
+	<p>Payment Amount:
+	$' . $getresult['PaymentAmount'] . ' </p>
 
-	Time Given:
-	' . $getresult['TimeGiven'] . ' hours
+	<p>Time Given:
+	' . $getresult['TimeGiven'] . ' hours </p>
+
+
+</div>
 
 	<div class="submit">
-	<input class="sub waves-effect waves-light btn-large" type="submit" name="submit" value="Pay for contract">
+	<p class="center">
+  <label>
+        <input type="checkbox" class="filled-in">
+        <span>I agree to the terms and conditions</span>
+  </label>
+    </p>
+	<input class="pay sub waves-effect waves-light btn-large" type="submit" name="submit" value="Confirm contract">
       	</div>
 	</form>';
 	// }
