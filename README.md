@@ -20,6 +20,8 @@ Anonymous users can view completed games by The Completionist
 
 Setting to enable/disable debugging information (setting stored in localstorage)
 
+Setting to change users avatar w/ uploading to database
+
 Private pages are protected against users without Admin status with session rules
 
 In settings - lists all users in database using JSON and AJAX.
