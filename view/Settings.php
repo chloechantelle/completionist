@@ -63,25 +63,71 @@ echo $_SESSION['Debug'];
       </div>
 
       <div id="3" class="section scrollspy">
-        <h1>Option 3</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+        <h1>Avatar Upload</h1>
+        <p>Upload image to database and show image as users avatar</p>
+
+<!-- enctype="multipart/form-data" breaks insert???? -->
+
+<form class="add" action="../controller/upload_process.php" method="post">
+  <input type="file" name="image">
+  <input type="submit" value="Normal Upload!">
+</form>
+
+<!-- <form class="add" method="post" enctype="multipart/form-data"> -->
+  <!-- <input type="file" id="image" name="image"> -->
+  <!-- <button name="imagebut" onClick="upload()">Ajax Upload!</button> -->
+  <!-- <button type="button" name="imagebut" onClick="upload()">Ajax Upload!</button> -->
+<!-- </form> -->
+
+        <div id="image">
+
+        </div>
+
+<style>
+#image {
+  border: 1px solid black;
+}
+</style>
+
       </div>
     </div>
     <div class="col hide-on-small-only m3 l2">
       <ul class="spy left section table-of-contents">
         <li><a href="#1">Debugging</a></li>
         <li><a href="#2">All users</a></li>
-        <li><a href="#3">Option 3</a></li>
+        <li><a href="#3">Avatar Upload</a></li>
       </ul>
     </div>
   </div>
 
 <script>
+
+function upload() {
+
+// function upload() {  
+    // e.preventDefault();  
+    // var image = $('#image');     
+
+    $.ajax({
+        type: "POST",
+        data: "data",
+        // data: image,
+        url: "../controller/upload_process.php",
+        success: function(data) {   
+
+            // alert(data);
+            console.log(data);
+            alert('Uploaded');
+            document.getElementById("image").innerHTML = data;
+
+        },
+        error: function(error) {
+            alert('Error');
+            console.log(data);
+        }
+    });
+// };
+};
 
 function users() {  
 $.ajax({
@@ -112,30 +158,6 @@ $.ajax({
         }
     });
 };
-  
-// $(document).ready(function () {
-//   $('#get-data').click(function () {
-//     var showData = $('#show-data');
-
-//     $.getJSON('users.json', function (data) {
-//       // console.log(data);
-
-//       var users = data.users.map(function (item) {
-//         return item.Email + ': ' + item.FirstName;
-//       });
-
-//       showData.empty();
-
-//       if (users.length) {
-//         var content = '<li>' + users.join('</li><li>') + '</li>';
-//         var list = $('<ul />').html(content);
-//         showData.append(list);
-//       }
-//     });
-
-//     showData.text('loading...');
-//   });
-// });
 
 </script>
 
