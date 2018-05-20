@@ -78,8 +78,9 @@ $activeresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	<div class="submit submitupdate">
 <a href="updatecontract.php?ContractID=' . $row['ContractID'] . '" class="sub waves-effect waves-light btn-large right"><i class="material-icons left">update</i>Update Contract</a>
 	</div>
+
 	<div class="submit submitpay">
-<a href="paycontract.php?ContractID=' . $row['ContractID'] . '" class="sub waves-effect waves-light btn-large right"><i class="material-icons left">payment</i>Pay</a>
+<a href="paycontract.php?ContractID=' . $row['ContractID'] . '" class="sub waves-effect waves-light btn-large right"><i class="material-icons left">payment</i>Pay for Contract</a>
 	</div>	
 </div>            
 </div>
