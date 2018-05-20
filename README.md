@@ -46,10 +46,7 @@ Customers will be able to request an admin (The Completionist) to complete (acqu
 # Usage
 
 Admin: completionist@gmail.com/Password1
+
 User: test@gmail.com/Password1
 
-<<<<<<< HEAD
 Also currently a wip at http://boop.chloechantelle.com/completionist
-=======
-Also currently a wip at http://boop.chloechantelle.com/completionist
->>>>>>> origin/master
