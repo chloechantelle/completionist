@@ -5,7 +5,7 @@
     color: #1e1f40 !important;
 }
 
-.btn, .btn-large, .btn-large:hover, .btn:hover, .btn-large:focus, .btn-large:active, .waves-button-input, .datepicker-date-display, .datepicker-table td.is-selected {
+.btn, .btn-large, .btn-large:hover, .btn:hover, .btn-large:focus, .btn-large:active, .waves-button-input, .datepicker-date-display, .datepicker-table td.is-selected, [type="checkbox"].filled-in:checked + span:not(.lever)::after {
     color: #fff;
     background-color: #1e1f40;
 }
@@ -60,7 +60,7 @@ svg rect {
     height: 400px;
 } 
 
-input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default):focus:not([readonly]) {
+input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default):focus:not([readonly]), [type="checkbox"].filled-in:checked + span:not(.lever)::after {
 	border-color: #1e1f40;	
 	box-shadow: none;
 }
@@ -184,6 +184,33 @@ nav ul li.active, .page-footer .footer-copyright {
 
 .brand-logo {
 	margin-left: 10px;	
+}
+
+.avi {
+	margin: 20px 10px 0px 0px;
+	max-width: 30px;
+}
+
+
+	/* pay terms button */
+
+.pay input {
+    /*-webkit-user-select: none;
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    user-select: none;*/
+    /*opacity: 0.6;*/
+    /*cursor: default;*/
+}	
+
+input:checked ~ div .pay input {
+	-webkit-user-select: default; /* Safari 3.1+ */
+    -moz-user-select: default; /* Firefox 2+ */
+    -ms-user-select: default; /* IE 10+ */
+    user-select: default; /* Standard syntax */
+	/*opacity: 1;*/
+	background: red;
+	cursor: pointer;
 }
 
 	/* dropdowns */
