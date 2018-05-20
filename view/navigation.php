@@ -42,12 +42,14 @@ if (isset($_SESSION['Role']) && $_SESSION['Role'] == 'Admin') {
     .contact {display: inherit;}
     .log { display: none !important; }
     .submitupdate { display: inherit;}    
-    .submitpay { display: none;}    
+    .submitpay { display: none;}   
+
     #download-button {display: none;}
   </style> 
 
     <?php
     $email = $_SESSION['CurrentUser'];
+    $avi = $_SESSION['Avi'];
 }
 elseif (isset($_SESSION['Role']) && $_SESSION['Role'] == 'Customer') {
     ?>
@@ -59,12 +61,14 @@ elseif (isset($_SESSION['Role']) && $_SESSION['Role'] == 'Customer') {
     .contact {display: inherit;}
     .log { display: none;}
     .submitupdate { display: none;}   
-    .submitpay { display: inherit;}    
+    .submitpay { display: inherit;}  
+
     #download-button {display: none;}
   </style>
 
     <?php
-    $email = $_SESSION['CurrentUser'];
+    $email = $_SESSION['CurrentUser'];    
+    $avi = $_SESSION['Avi'];
 }
 else {
    ?>
@@ -76,12 +80,14 @@ else {
  
    .log { display: inherit;}
    .contact {display: none !important;}
+   
    .submitupdate { display: none;}
    .submitpay { display: none;}    
  </style>    
 
    <?php
    $email = null;
+   $avi = null;
 }
 
 ?>
@@ -141,7 +147,8 @@ echo '/controller/logout_process.php"><i class="material-icons left">exit_to_app
       echo $Root;
       echo '/view/contract.php"><i class="material-icons left">add_circle_outline</i>Create Contract</a></li>
 
-      <li><a class="both dropdown-trigger" data-target="dropdown1"><i class="material-icons left">account_circle</i>
+      <li><a class="both dropdown-trigger" data-target="dropdown1">
+      <img alt="" class="left avi" src=" ' . $avi . ' ">
       Welcome ' . $email . '!
       <i class="material-icons right">arrow_drop_down</i></a></li>  
 
