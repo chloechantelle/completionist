@@ -7,38 +7,38 @@ Customers will be able to request an admin (The Completionist) to complete (acqu
 
 # Features
 
-Secure login/register feature
+* Secure login/register feature
 
-Admin can create contracts for registered users
+* Admin can create contracts for registered users
 
-Admin can update all contracts using AJAX
+* Admin can update all contracts using AJAX
 
-Customers can submit contracts to be approved by an admin
+* Customers can submit contracts to be approved by an admin
 
-Customers can view their current active contracts
+* Customers can view their current active contracts
 
-Admin can view all active contracts
+* Admin can view all active contracts
 
-Anonymous users can view completed games by The Completionist
+* Anonymous users can view completed games by The Completionist
 
-About page shows all completed games and info about each game using AJAX
+* About page shows all completed games and info about each game using AJAX
 
-Setting to enable/disable debugging information (setting stored in localstorage)
+* Setting to enable/disable debugging information (setting stored in localstorage)
 
-Setting to change users avatar w/ uploading to database
+* Setting to change users avatar w/ uploading to database
 
-Private pages are protected against users without Admin status with session rules
+* Private pages are protected against users without Admin status with session rules
 
-In settings - lists all users in database using JSON and AJAX
+* In settings - lists all users in database using JSON and AJAX
 
 # Known bugs
 
-Buttons sometimes require multiple clicks - s/t to do with Materialize buttons
+* Buttons sometimes require multiple clicks - s/t to do with Materialize buttons
 
-Switch can be buggy - doesn't remember function value after log out
+* Switch can be buggy - doesn't remember function value after log out
 
-JS doesn't work on UpdateContract
+* JS doesn't work on UpdateContract
 
 # To Do
 
-Notifications for updated contracts
+* Notifications for updated contracts
