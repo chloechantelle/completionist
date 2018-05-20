@@ -1,15 +1,16 @@
+<?php
+session_start()
+?>
 <html>
 <body>	
-
-	<?php
-	session_start();
-	include 'model/db.php';
-	include 'view/header.php';		
-  include 'view/navigation.php'; 
-	// $_SESSION["beep"] = 'boop';
+<?php
+include 'model/db.php';
+include 'view/header.php';		
+include 'view/navigation.php'; 
+// $_SESSION["beep"] = 'boop';
       // session_unset(); 
       // session_destroy(); 
-	?>
+?>
 
 	<!-- content -->
 
