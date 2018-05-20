@@ -3,7 +3,7 @@ session_start();
 include '../model/db.php';
 include '../view/header.php';
 include '../view/navigation.php';
-header('Refresh: 5; URL=../view/ActiveRequests.php');              
+header('Refresh: 5; URL=../view/about.php');              
 ?>
 
 <style><?php include '../view/style.css';?></style> 
@@ -49,10 +49,11 @@ else {
     $_SESSION['Role'] = $role;
 
 // insert user
-    $register = "INSERT INTO users(Email, Password, Role) VALUES (
+    $register = "INSERT INTO users(Email, Password, Role, Avi) VALUES (
     '" . $_POST['Email'] . "',
     '$hashed_password',
-    'Customer'
+    'Customer',
+    '../view/img/default.png'
 )";
     $stmt = $conn->prepare($register);
     $stmt->execute();        
@@ -68,7 +69,7 @@ else {
     // echo'Registered!';
     // foreach ($_SESSION as $key=>$val)
                   // echo $key." : ".$val."<br/>";
-// header('Refresh: 5; URL=../view/ActiveRequests.php');              
+// header('Refresh: 5; URL=../view/about.php');              
 }
 
 ?>
