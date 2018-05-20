@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2018 at 05:56 AM
--- Server version: 10.1.25-MariaDB
--- PHP Version: 7.1.7
+-- Generation Time: May 16, 2018 at 09:46 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -43,7 +41,7 @@ CREATE TABLE `contract` (
 --
 
 INSERT INTO `contract` (`ContractID`, `Date`, `PaymentAmount`, `TimeGiven`, `Status`, `GameID`, `UserID`) VALUES
-(132, '23/2/18', 403, '4', 'Awaiting confirmation', 2, 2),
+(132, '23/2/18', 505, '4', 'Confirmed and Payed', 2, 2),
 (134, '27/04/18', 60, '60', 'Awaiting confirmation', 3, 2),
 (136, '4/4/18', 1, '2', 'Finishing', 3, 1),
 (147, '', 0, '', 'Submitted', 4, 2),
@@ -56,7 +54,10 @@ INSERT INTO `contract` (`ContractID`, `Date`, `PaymentAmount`, `TimeGiven`, `Sta
 (156, '05/05/2018', 300, '3178', 'Completed', 7, 1),
 (157, '05/05/2018', 400, '480', 'Completed', 8, 1),
 (158, '05/05/2018', 300, '342', 'Completed', 9, 1),
-(159, '05/05/2018', 700, '732', 'Completed', 10, 1);
+(159, '05/05/2018', 700, '732', 'Completed', 10, 1),
+(166, '', 0, '', 'Submitted', 6, 2),
+(169, '', 0, '', 'Confirmed and Payed', 8, 2),
+(170, '', 0, '', 'Submitted', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -91,6 +92,34 @@ INSERT INTO `games` (`GameID`, `GameTitle`, `DateReleased`, `GamePlatform`, `Cov
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `upl`
+--
+
+CREATE TABLE `upl` (
+  `ID` int(11) NOT NULL,
+  `img` varchar(100) NOT NULL,
+  `file` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `upl`
+--
+
+INSERT INTO `upl` (`ID`, `img`, `file`) VALUES
+(8, 'favi.png', ''),
+(51, 'C:fakepathfavi.png', ''),
+(62, '', ''),
+(63, '', ''),
+(64, '', ''),
+(65, '', ''),
+(66, '', ''),
+(67, '', ''),
+(68, '', ''),
+(69, '', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -113,12 +142,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`UserID`, `Password`, `FirstName`, `LastName`, `Email`, `Country`, `PSNID`, `SteamID`, `XboxID`, `Role`) VALUES
 (1, 'Password1', 'Jim', 'Doe', 'completionist@gmail.com', 'Australia', 'TheCompletionist', 'TheCompletionist', 'TheCompletionist', 'Admin'),
-(2, 'Password1', 'Ben', 'Doe', 'test@gmail.com', 'Australia', 'Test1', 'Test1', 'Test1', 'Customer'),
-(24, '$2y$10$Y4jXInoU3vmndYqI7MMaFuS', '', '', 'difojkdg', '', NULL, NULL, NULL, 'Customer'),
-(35, '$2y$10$BXS71wD/IXrVcsfJKp20E.4', '', '', 'cbb', '', NULL, NULL, NULL, 'Customer'),
-(36, '$2y$10$A0fgrgyoyulRg4TE2yh0OOf', '', '', 'gnbvhnvgngf', '', NULL, NULL, NULL, 'Customer'),
-(37, '$2y$10$AxlsO0uW4QKyp1ScITg5Qu9', '', '', 'gnbvhnvgngf', '', NULL, NULL, NULL, 'Customer'),
-(38, '$2y$10$V0UZC9PotqcUmZQbfFj87OU', '', '', 'gnbvhnvgngf', '', NULL, NULL, NULL, 'Customer');
+(2, 'Password1', 'Ben', 'Doe', 'test@gmail.com', 'Australia', 'Test1', 'Test1', 'Test1', 'Customer');
 
 --
 -- Indexes for dumped tables
@@ -139,6 +163,12 @@ ALTER TABLE `games`
   ADD PRIMARY KEY (`GameID`);
 
 --
+-- Indexes for table `upl`
+--
+ALTER TABLE `upl`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -152,17 +182,22 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contract`
 --
 ALTER TABLE `contract`
-  MODIFY `ContractID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=160;
+  MODIFY `ContractID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
 --
 -- AUTO_INCREMENT for table `games`
 --
 ALTER TABLE `games`
   MODIFY `GameID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
+-- AUTO_INCREMENT for table `upl`
+--
+ALTER TABLE `upl`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `UserID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `UserID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
@@ -173,7 +208,6 @@ ALTER TABLE `users`
 ALTER TABLE `contract`
   ADD CONSTRAINT `contract_ibfk_1` FOREIGN KEY (`GameID`) REFERENCES `games` (`GameID`),
   ADD CONSTRAINT `contract_ibfk_2` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

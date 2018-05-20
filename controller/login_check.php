@@ -25,6 +25,7 @@ $getresult = $stmt->fetch(PDO::FETCH_ASSOC);
 $email = ($_POST['Email']);
 $role = ($getresult['Role']);
 $ID =  ($getresult['UserID']);
+$avi =  ($getresult['Avi']);
 
 // if it exists
 if (count($result) ) {
@@ -32,6 +33,7 @@ if (count($result) ) {
 	$_SESSION['LoggedIn'] = true;
 	$_SESSION['CurrentUser'] = $email;
 	$_SESSION['Role'] = $role;
+	$_SESSION['Avi'] = $avi;
 	$_SESSION['UserID'] = $ID;
 	$_SESSION['Debug'] = 'Off';
 	echo "Correct login!";
