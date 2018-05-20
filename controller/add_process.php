@@ -1,5 +1,5 @@
 <?php
-header('Refresh: 3; URL=../view/ActiveRequests.php');
+header('Refresh: 3; URL=../view/about.php');
 ?>
 
 <?php	
@@ -20,9 +20,9 @@ $beforeamount = $_POST['PaymentAmount'];
 $beforetime = $_POST['TimeGiven'];
 
 // sanitize
-$date = filter_var($beforedate, FILTER_SANITIZE_STRING);
-$amount = filter_var($beforeamount, FILTER_SANITIZE_STRING);
-$time = filter_var($beforetime, FILTER_SANITIZE_STRING);
+$date = trim(filter_var($beforedate, FILTER_SANITIZE_STRING));
+$amount = trim(filter_var($beforeamount, FILTER_SANITIZE_STRING));
+$time = trim(filter_var($beforetime, FILTER_SANITIZE_STRING));
 
 // set variables
 $status = $_POST['Status'];
