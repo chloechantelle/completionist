@@ -30,8 +30,8 @@ Buttons sometimes require multiple clicks - s/t to do with Materialize buttons
 
 Switch can be buggy - doesn't remember function value after log out
 
+JS doesn't work on UpdateContract
+
 # To Do
 
 Notifications for updated contracts
-
-Include terms inside contracts
