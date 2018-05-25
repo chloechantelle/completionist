@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2018 at 09:31 AM
+-- Generation Time: May 25, 2018 at 05:09 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -43,13 +43,8 @@ CREATE TABLE `contract` (
 --
 
 INSERT INTO `contract` (`ContractID`, `Date`, `PaymentAmount`, `TimeGiven`, `Status`, `GameID`, `UserID`) VALUES
-(132, '23/2/18', 404, '4', 'Confirmed and Payed', 2, 2),
-(134, '27/04/18', 60, '60', 'Awaiting confirmation', 3, 2),
-(136, '4/4/18', 1, '2', 'Finishing', 3, 1),
-(147, '', 0, '', 'Submitted', 4, 2),
-(148, 'May 05, 20', 359, '1', 'Awaiting confirmation', 4, 35),
-(150, '', 0, '', 'Awaiting Confirmation', 3, 38),
-(151, 'May 14, 20', 500, '50', 'In Progress', 3, 38),
+(132, '23/02/2018', 404, '4', 'Confirmed and Payed', 2, 2),
+(134, '27/04/2018', 60, '60', 'Awaiting confirmation', 3, 2),
 (152, '05/05/2018', 88, '888', 'Completed', 3, 1),
 (154, '05/05/2018', 70, '739', 'Completed', 5, 1),
 (155, '05/05/2018', 70, '746', 'Completed', 6, 1),
@@ -57,9 +52,7 @@ INSERT INTO `contract` (`ContractID`, `Date`, `PaymentAmount`, `TimeGiven`, `Sta
 (157, '05/05/2018', 400, '480', 'Completed', 8, 1),
 (158, '05/05/2018', 300, '342', 'Completed', 9, 1),
 (159, '05/05/2018', 700, '732', 'Completed', 10, 1),
-(166, '', 0, '', 'Submitted', 6, 2),
-(169, '', 0, '', 'Confirmed and Payed', 8, 2),
-(170, '', 0, '', 'Submitted', 1, 2);
+(171, '23/05/2018', 300, '3000', 'Payment Recieved', 10, 2);
 
 -- --------------------------------------------------------
 
@@ -80,10 +73,10 @@ CREATE TABLE `games` (
 --
 
 INSERT INTO `games` (`GameID`, `GameTitle`, `DateReleased`, `GamePlatform`, `Cover`) VALUES
-(1, 'Nioh', '2017-02-07', 'PS4', '../view/img/games/Nioh.jpg'),
-(2, 'Ninja Gaiden', '2005-09-20', 'Xbox 360', '../view/img/games/NinjaGaiden.jpg'),
-(3, 'Bloodborne', '2015-03-24', 'PS4', '../view/img/games/Bloodborne.jpg'),
-(4, 'Silent Hill: Homecoming', '2008-09-30', 'PC', '../view/img/games/SilentHill.jpg'),
+(1, 'Nioh', '2017-02-07', 'PS4', '../view/img/games/nioh.jpg'),
+(2, 'Ninja Gaiden', '2005-09-20', 'Xbox 360', '../view/img/games/ninjagaiden.jpg'),
+(3, 'Bloodborne', '2015-03-24', 'PS4', '../view/img/games/bloodborne.jpg'),
+(4, 'Silent Hill: Homecoming', '2008-09-30', 'PC', '../view/img/games/silenthill.jpg'),
 (5, 'Batman', '2016-08-02', 'PS4', '../view/img/games/batman.png'),
 (6, 'Far Cry Primal', '2016-02-23', 'PS4', '../view/img/games/farcry.jpg'),
 (7, 'Killing Floor 2', '2016-11-18', 'PS4', '../view/img/games/killingfloor.jpg'),
@@ -94,13 +87,33 @@ INSERT INTO `games` (`GameID`, `GameTitle`, `DateReleased`, `GamePlatform`, `Cov
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `emailID` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`emailID`, `email`, `subject`, `message`) VALUES
+(38, 'test@email', 'Subject', 'Message');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `UserID` int(20) UNSIGNED NOT NULL,
-  `Role` varchar(20) NOT NULL,
   `Avi` varchar(255) NOT NULL,
+  `Role` varchar(20) NOT NULL,
   `Password` varchar(30) NOT NULL,
   `FirstName` varchar(50) NOT NULL,
   `LastName` varchar(50) NOT NULL,
@@ -115,9 +128,9 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`UserID`, `Role`, `Avi`, `Password`, `FirstName`, `LastName`, `Email`, `Country`, `PSNID`, `SteamID`, `XboxID`) VALUES
-(1, 'Admin', '../view/img/avi/fav.png ', 'Password1', 'Jim', 'Doe', 'completionist@gmail.com', 'Australia', 'TheCompletionist', 'TheCompletionist', 'TheCompletionist'),
-(2, 'Customer', '../view/img/avi/default.png', 'Password1', 'Ben', 'Doe', 'test@gmail.com', 'Australia', 'Test1', 'Test1', 'Test1');
+INSERT INTO `users` (`UserID`, `Avi`, `Role`, `Password`, `FirstName`, `LastName`, `Email`, `Country`, `PSNID`, `SteamID`, `XboxID`) VALUES
+(1, '../view/img/avi/fav.png ', 'Admin', 'Password1', 'Jim', 'Doe', 'completionist@gmail.com', 'Australia', 'TheCompletionist', 'TheCompletionist', 'TheCompletionist'),
+(2, '../view/img/avi/default.png', 'Customer', 'Password1', 'Ben', 'Doe', 'test@gmail.com', 'Australia', 'Test1', 'Test1', 'Test1');
 
 --
 -- Indexes for dumped tables
@@ -138,6 +151,12 @@ ALTER TABLE `games`
   ADD PRIMARY KEY (`GameID`);
 
 --
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`emailID`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -151,12 +170,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contract`
 --
 ALTER TABLE `contract`
-  MODIFY `ContractID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=171;
+  MODIFY `ContractID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
 --
 -- AUTO_INCREMENT for table `games`
 --
 ALTER TABLE `games`
-  MODIFY `GameID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `GameID` int(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `emailID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 --
 -- AUTO_INCREMENT for table `users`
 --
@@ -170,7 +194,8 @@ ALTER TABLE `users`
 -- Constraints for table `contract`
 --
 ALTER TABLE `contract`
-  ADD CONSTRAINT `contract_ibfk_1` FOREIGN KEY (`GameID`) REFERENCES `games` (`GameID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `contract_ibfk_1` FOREIGN KEY (`GameID`) REFERENCES `games` (`GameID`),
+  ADD CONSTRAINT `contract_ibfk_2` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
