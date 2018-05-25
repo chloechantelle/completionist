@@ -25,11 +25,11 @@ Customers will be able to request an admin (The Completionist) to complete (acqu
 
 * Setting to enable/disable debugging information (setting stored in localstorage)
 
-* Setting to change users avatar w/ uploading to database
+* Setting to change users avatar
 
 * Private pages are protected against users without Admin status with session rules
 
-* In settings - lists all users in database using JSON and AJAX
+* Loops all users in database using JSON and AJAX
 
 # Known bugs
 
@@ -37,19 +37,19 @@ Customers will be able to request an admin (The Completionist) to complete (acqu
 
 * Switch can be buggy - doesn't remember function value after log out
 
-* JS doesn't work on UpdateContract
-
 # To Do
 
-* Notifications for updated contracts
+* Notifications for updated contracts - on the specifically updated contract
+
+* Securely upload images to the database
+
+* Working contact form to email completionist@chloechantelle.com
+
+* Hiring section - option on the contact section
 
 # Usage
 
 Admin: completionist@gmail.com/Password1
 User: test@gmail.com/Password1
 
-<<<<<<< HEAD
 Also currently a wip at http://boop.chloechantelle.com/completionist
-=======
-Also currently a wip at http://boop.chloechantelle.com/completionist
->>>>>>> origin/master
