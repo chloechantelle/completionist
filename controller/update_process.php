@@ -9,8 +9,6 @@ include '../model/db.php';
 include '../view/header.php';	
 include '../view/navigation.php';
 ?>	
-<style><?php include '../view/style.css';?></style>	
-<script src="../view/javascript.js"></script>
 
 <?php
 
@@ -46,6 +44,8 @@ Status = '" . $status . "' WHERE ContractID = ' " . $_GET['ContractID'] . " '
 $stmt = $conn->prepare($update);
 $stmt->execute();
 
+// $_SESSION['Update'] = '1';
+
 // test
 // print_r($_POST);  
 
@@ -74,5 +74,5 @@ echo '
 ?>
 
 <?php
-			include '../view/footer.php';
+include '../view/footer.php';
 ?>	

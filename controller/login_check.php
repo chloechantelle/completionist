@@ -1,13 +1,10 @@
 <?php
-	session_start();
-	include '../model/db.php';
+session_start();
+include '../model/db.php';
 	// include 'header.php';
 	// include 'navigation.php';
 ?>
 <?php
-
-// search emails
-// $select_sql = "  select Email, Password from users where Email = ' " . $_POST['Email'] . " '  and Password = ' " . $_POST['Password'] . " '  ;";
 
 // function to search for existing users
 $select_sql = "select * from users where Email = '" . $_POST['Email'] . "' and Password = '" . $_POST['Password'] . "' ;";		
@@ -36,14 +33,13 @@ if (count($result) ) {
 	$_SESSION['Avi'] = $avi;
 	$_SESSION['UserID'] = $ID;
 	$_SESSION['Debug'] = 'Off';
-	echo "Correct login!";
+	// echo "Correct login!";
 	header('Location: ../view/about.php');
 }
 
 // if it doesn't exist
 else {		
-	echo "Incorrect!";
-	// header('HTTP/1.1 401 Unauthorized', true, 401);
+	echo "Incorrect!";	
 	// run function to show JS pop up for below message
 	// echo "Incorrect username or password!";
 	// header('Location: ../index.php');

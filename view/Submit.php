@@ -23,50 +23,50 @@ $userresult = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <form name="registration" class="contract" action="../controller/useradd_process.php" method="post">
 
-<div class="input-field col s12 m6">
+	<div class="input-field col s12 m6">
 
-<select required name="GameID" class="icons">
+		<select required name="GameID" class="icons">
 
-<option disabled>Choose game</option>
+			<option disabled>Choose game</option>
 
-<!-- <optgroup label="Choose game"> -->
+			<!-- <optgroup label="Choose game"> -->
 
-<?php 
-    foreach($gameresult as $game) {
-      echo'
-      <option value="' . $game['GameID'] . '" data-icon="' . $game['Cover'] . '" class="circle">
-      ' . $game['GameTitle'] . '
-      </option>'      
-    ;}?>
-</select>
+				<?php 
+				foreach($gameresult as $game) {
+					echo'
+					<option value="' . $game['GameID'] . '" data-icon="' . $game['Cover'] . '" class="circle">
+					' . $game['GameTitle'] . '
+					</option>'      
+					;}?>
+				</select>
 
-<?php 
-$email = $_SESSION['CurrentUser'];
-$ID = $_SESSION['UserID'];
-?>
+				<?php 
+				$email = $_SESSION['CurrentUser'];
+				$ID = $_SESSION['UserID'];
+				?>
 
-<select required name="UserID" class="icons" disabled>
-<?php
-echo'
-      <option value="' . $ID . '" data-icon="../view/img/pachimari.png" class="circle">
-      ' . $email . '
-      </option>'     
-?>  
-</select>
+				<select required name="UserID" class="icons" disabled>
+					<?php
+					echo'
+					<option value="' . $ID . '" data-icon="../view/img/pachimari.png" class="circle">
+					' . $email . '
+					</option>'     
+					?>  
+				</select>
 
 
-  </div>
+			</div>
 
-       <p class="center">
-        Request will be submitted and then approved by an admin. Once approved you will be notified with a set price and estimated time it'll take to be completed. Once agreed upon and the payment has been recieved the completing can be started!
-       </p>
+			<p class="center">
+				Request will be submitted and then approved by an admin. Once approved you will be notified with a set price and estimated time it'll take to be completed. Once agreed upon and the payment has been recieved the completing can be started!
+			</p>
 
-       <div class="submit">
-	<input class="sub waves-effect waves-light btn-large" type="submit" name="submit" value="Submit Request!">
-      </div>
+			<div class="submit">
+				<input class="sub waves-effect waves-light btn-large" type="submit" name="submit" value="Submit Request!">
+			</div>
 
-	</form>
+		</form>
 
-<?php
-			include '../view/footer.php';
-?>	
+		<?php
+		include '../view/footer.php';
+		?>	

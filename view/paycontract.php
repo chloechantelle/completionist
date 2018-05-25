@@ -3,11 +3,11 @@
 
 // if user isn't admin, redirect to login
 
-if (isset($_SESSION['Role']) && $_SESSION['Role'] == 'Customer') {
-  }
-else {
-  header("Location: ../index.php");
-}
+	if (isset($_SESSION['Role']) && $_SESSION['Role'] == 'Customer') {
+	}
+	else {
+		header("Location: ../index.php");
+	}
 	
 	include '../model/db.php';  
 	include 'header.php';	
@@ -54,21 +54,21 @@ else {
 	' . $getresult['TimeGiven'] . ' hours </p>
 
 
-</div>
+	</div>
 
 	<div class="submit">
 	<p class="center">
-  <label>
-        <input type="checkbox" class="filled-in">
-        <span>I agree to the terms and conditions</span>
-  </label>
-    </p>
+	<label>
+	<input type="checkbox" class="filled-in">
+	<span>I agree to the terms and conditions</span>
+	</label>
+	</p>
 	<input class="pay sub waves-effect waves-light btn-large" type="submit" name="submit" value="Confirm contract">
-      	</div>
+	</div>
 	</form>';
 	// }
 	?>
 
-<?php
+	<?php
 	include '../view/footer.php';
-?>	
+	?>	

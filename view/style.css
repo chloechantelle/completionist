@@ -1,16 +1,16 @@
 	
-	/* accent color */
+/* accent color */
 
 .pink-text.text-lighten-3, .datepicker-cancel, .datepicker-clear, .datepicker-today, .datepicker-done {
-    color: #1e1f40 !important;
+	color: #1e1f40 !important;
 }
 
 .btn, .btn-large, .btn-large:hover, .btn:hover, .btn-large:focus, .btn-large:active, .waves-button-input, .datepicker-date-display, .datepicker-table td.is-selected, [type="checkbox"].filled-in:checked + span:not(.lever)::after {
-    color: #fff;
-    background-color: #1e1f40;
+	color: #fff;
+	background-color: #1e1f40;
 }
 
-	/* main bg colors */
+/* main bg colors */
 
 .btn-floating {
 	background: #fff;
@@ -21,22 +21,37 @@ nav, .page-footer, .main, .main-left, .main-right {
 	background: #1e1f40;
 }
 
-	/* loading animation color */
+/* fonts */
+
+* {
+	font-family: "Open Sans", "Segoe UI";	
+}
+
+/* loading animation color */
 
 /*svg path,*/
 svg rect {
-  fill: #222;
+	fill: #222;
 }
 
+/* page loader */
+
 #loading {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: 9999;
-  background: url('../view/img/loading.svg') 50% 50% no-repeat rgb(250,250,250);
-  /*background-size: 100px 82px;*/
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url('../view/img/loading.svg') 50% 50% no-repeat rgb(250,250,250);
+	/*background-size: 100px 82px;*/
+}
+
+/* buttons */
+
+.btn, .btn-large, .btn-small, .btn-flat, input {
+	text-transform: none;
+	font-weight: 600 !important;
 }
 
 #msg {
@@ -44,21 +59,23 @@ svg rect {
 }
 
 #loader {
-    position: absolute;
-    top: 20%;
-    left: 30%;
-    z-index: 9999;
-    text-align: center;
-    /*background: #fff;*/
-    height: 600px;
-    width: 600px;
-    display: none;
- }
+	position: absolute;
+	top: 20%;
+	left: 30%;
+	z-index: 9999;
+	text-align: center;
+	/*background: #fff;*/
+	height: 600px;
+	width: 600px;
+	display: none;
+}
 
 
 .card.small {
-    height: 400px;
+	height: 400px;
 } 
+
+/* inputs */
 
 input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default):focus:not([readonly]), [type="checkbox"].filled-in:checked + span:not(.lever)::after {
 	border-color: #1e1f40;	
@@ -72,16 +89,6 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
 .main h5 {
 	color: #fff;	
 	font-size: 30px;
-}
-
-.main-con {
-	/*width: 100%;*/
-	/*background: red;*/
-}
-
-.main {
-	/*padding: 250px 130px 300px 130px;	*/
-	/*padding: 100px;*/
 }
 
 .main-left, .main-right {
@@ -102,15 +109,15 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
 }
 
 @keyframes controller {
-    0% {
-    	transform: rotate(320deg);
-    }
-    50% {
-    	transform: rotate(330deg);
-    }
-    100% {
-    	transform: rotate(320deg);
-    }
+	0% {
+		transform: rotate(320deg);
+	}
+	50% {
+		transform: rotate(330deg);
+	}
+	100% {
+		transform: rotate(320deg);
+	}
 }
 
 .main-right .row {
@@ -124,9 +131,9 @@ input:not([type]):focus:not([readonly]), input[type="text"]:not(.browser-default
 
 #settingsbutt {
 	/*display: none;*/
-  pointer-events: none;
-  cursor: default;
-  opacity: 0.5;
+	pointer-events: none;
+	cursor: default;
+	opacity: 0.5;
 }
 
 .inforow {
@@ -179,7 +186,7 @@ nav, .page-footer {
 }
 
 nav ul li.active, .page-footer .footer-copyright {
-    /*background: #222;*/
+	/*background: #222;*/
 }
 
 .brand-logo {
@@ -192,29 +199,29 @@ nav ul li.active, .page-footer .footer-copyright {
 }
 
 
-	/* pay terms button */
+/* pay terms button */
 
 .pay input {
-    /*-webkit-user-select: none;
-    -moz-user-select: none; 
-    -ms-user-select: none;
-    user-select: none;*/
-    /*opacity: 0.6;*/
-    /*cursor: default;*/
+	/*-webkit-user-select: none;
+	-moz-user-select: none; 
+	-ms-user-select: none;
+	user-select: none;*/
+	/*opacity: 0.6;*/
+	/*cursor: default;*/
 }	
 
 input:checked ~ div .pay input {
 	-webkit-user-select: default; /* Safari 3.1+ */
-    -moz-user-select: default; /* Firefox 2+ */
-    -ms-user-select: default; /* IE 10+ */
-    user-select: default; /* Standard syntax */
+	-moz-user-select: default; /* Firefox 2+ */
+	-ms-user-select: default; /* IE 10+ */
+	user-select: default; /* Standard syntax */
 	/*opacity: 1;*/
 	background: red;
 	cursor: pointer;
 }
 
-	/* dropdowns */
-	
+/* dropdowns */
+
 .dropdown-content {
 	background: #eee;
 	min-width: 250px;
@@ -238,10 +245,10 @@ input:checked ~ div .pay input {
 	z-index: 999;
 }
 .sidenav-overlay {
-    z-index: 990;
+	z-index: 990;
 }
 
-/*admin profile*/
+/* about */
 
 .admin {
 	background: #111;
@@ -302,6 +309,34 @@ input:checked ~ div .pay input {
 	font-size: 20px;
 }
 
+.formcontainer {
+	/*margin: 0 auto;*/
+	/*text-align: center;*/
+}
+
+.formcontainer h3 {
+	text-align: left;
+	width: 100%;
+	padding: 20px;
+}
+
+.formcontainer form {
+	text-align: center;
+	margin: 50px auto;
+	width: 40%;
+}
+
+/* js related */
+
+#success {
+	display: none;
+	text-align: center;    
+}   
+
+#success h1 {
+	font-size: 20px;
+}
+
 /* settings */
 
 .spy {
@@ -312,22 +347,26 @@ input:checked ~ div .pay input {
 	/*width: 40% !important*/
 }
 
+.scrollspy {
+	padding: 50px;
+}
+
 .settings {
 	width: 70% !important;
 	padding-right: 10% !important;
 }
 
 .switch label input[type="checkbox"]:checked + .lever::after {
-background-color: #272856; 		
+	background-color: #272856; 		
 }
 
 .switch label input[type="checkbox"]:checked + .lever {
-background-color: #bbb; 	
+	background-color: #bbb; 	
 }
 
 .table-of-contents a.active, .table-of-contents a:hover {
-    border-left: 2px solid #1e1f40;
-    color: #1e1f40;
+	border-left: 2px solid #1e1f40;
+	color: #1e1f40;
 }
 
 /*contract*/
@@ -364,8 +403,8 @@ background-color: #bbb;
 
 .btn-floating.btn-large i {
 	font-size: 35px;
- 	margin-left: -9px;
- 	/*line-height: 39px;*/
+	margin-left: -9px;
+	/*line-height: 39px;*/
 }
 
 /*requests*/
@@ -394,7 +433,6 @@ background-color: #bbb;
 
 .submit .btn-large {
 	font-size: 20px;
-	text-transform: none;
 	/*height: 45px;*/
 	/*height: 30px;*/
 	/*padding: 10px;*/
@@ -435,6 +473,11 @@ input::placeholder {
 	width: 80%;
 }
 
+.upload {
+	text-align: center;
+	margin: 0 auto;	
+}
+
 /*log out*/
 
 .logout {
@@ -455,20 +498,20 @@ input::placeholder {
 
 /*sticky footer*/
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
 
-  main {
-    flex: 1 0 auto;
-  }
+main {
+	flex: 1 0 auto;
+}
 
 @media only screen and (max-width: 1200px) {
 	.requestrow {
-	/*display: inline-block;*/
-	width: 90%;
-	margin: 30px auto;
+		/*display: inline-block;*/
+		width: 90%;
+		margin: 30px auto;
 	}
 	
 	nav .brand-logo {
@@ -478,9 +521,9 @@ body {
 
 @media only screen and (max-width: 600px) {
 	.requestrow {
-	/*display: inline-block;*/
-	width: 100%;
-	margin: 0px auto;
+		/*display: inline-block;*/
+		width: 100%;
+		margin: 0px auto;
 	}
 	nav .brand-logo {
 		font-size: 15px;
@@ -489,29 +532,29 @@ body {
 
 /* <3 */
 .luv a {
-    text-align: center;
-    color: #aaa;
+	text-align: center;
+	color: #aaa;
 }
 
 .container {
-text-align: center;
+	text-align: center;
 }
 
 .row .col.l4, .row .col.offset-l2 {
-width: 100%;
-margin: 0 auto;
+	width: 100%;
+	margin: 0 auto;
 }
 
 footer .luv::before, footer .luv::after {
-    content: "♥";
-    margin: 0px 5px 0px 5px;
-    opacity: 0;
-    transition: ease-in-out .3s;
+	content: "♥";
+	margin: 0px 5px 0px 5px;
+	opacity: 0;
+	transition: ease-in-out .3s;
 }
 
 footer .luv:hover:before, footer .luv:hover:after {
-    opacity: 1 !important;
-    transition: ease-in-out .3s;
+	opacity: 1 !important;
+	transition: ease-in-out .3s;
 }
 
 .btn, .btn-large, .btn-large:hover, .btn:hover {	
@@ -520,12 +563,12 @@ footer .luv:hover:before, footer .luv:hover:after {
 }  
 
 .btn-floating {
-    width: 100px;
-    height: 50px;
-    border-radius: 0px;
-    line-height: 50px;
-    font-weight: 600;
-    font-size: 17px;
+	width: 100px;
+	height: 50px;
+	border-radius: 0px;
+	line-height: 50px;
+	font-weight: 600;
+	font-size: 17px;
 }
 
 .subcon {

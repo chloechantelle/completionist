@@ -31,12 +31,12 @@ $status = $_POST['Status'];
 $insert_sql = "INSERT INTO contract (Date, PaymentAmount, TimeGiven, Status, GameID, UserID) 
 VALUES
 (
-  '" . $date . "',
-'" . $amount . "',
-'" . $time . "',
-'" . $_POST['Status'] . "', 
-'" . $_POST['GameID'] . "',
-'" . $_POST['UserID'] . "'
+	'" . $date . "',
+	'" . $amount . "',
+	'" . $time . "',
+	'" . $_POST['Status'] . "', 
+	'" . $_POST['GameID'] . "',
+	'" . $_POST['UserID'] . "'
 
 );";
 
@@ -71,5 +71,5 @@ echo '
 ?>
 
 <?php
-			include '../view/footer.php';
+include '../view/footer.php';
 ?>	

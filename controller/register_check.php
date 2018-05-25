@@ -3,7 +3,6 @@ session_start();
 include '../model/db.php';
 include '../view/header.php';
 include '../view/navigation.php';
-header('Refresh: 5; URL=../view/about.php');              
 ?>
 
 <style><?php include '../view/style.css';?></style> 
@@ -33,43 +32,32 @@ $role = 'Customer';
 
 // if it exists
 if (count($result) ) {
-    echo '
-    <div class="message">
-    <p>Email exists already!</p>
-    </div>
-    '; 
+	echo '
+	<div class="message">
+	<p>Email exists already!</p>
+	</div>
+	'; 
 }
 
 // if it doesn't exist
 else {      
 
 // set variables
-    $_SESSION['LoggedIn'] = true;
-    $_SESSION['CurrentUser'] = $email;
-    $_SESSION['Role'] = $role;
+	$_SESSION['LoggedIn'] = true;
+	$_SESSION['CurrentUser'] = $email;
+	$_SESSION['Role'] = $role;
 
 // insert user
-    $register = "INSERT INTO users(Email, Password, Role, Avi) VALUES (
-    '" . $_POST['Email'] . "',
-    '$hashed_password',
-    'Customer',
-    '../view/img/default.png'
+	$register = "INSERT INTO users(Email, Password, Role, Avi) VALUES (
+	'" . $_POST['Email'] . "',
+	'$hashed_password',
+	'Customer',
+	'../view/img/default.png'
 )";
-    $stmt = $conn->prepare($register);
-    $stmt->execute();        
+$stmt = $conn->prepare($register);
+$stmt->execute();        
 
-    echo '
-    <div class="logout"><h1>Registered! 
-    Welcome ' . $_POST['Email'] . '!
-    </h1>
-    <p>Redirecting you now. Click here if you do not get redirected.</p></div>
-    ';
-
-// redirect user    
-    // echo'Registered!';
-    // foreach ($_SESSION as $key=>$val)
-                  // echo $key." : ".$val."<br/>";
-// header('Refresh: 5; URL=../view/about.php');              
+header('Refresh: 5; URL=../view/about.php');              
 }
 
 ?>

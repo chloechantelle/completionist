@@ -14,38 +14,12 @@ include '../view/navigation.php';
 
 <?php
 
-// $getselect = '
-// SELECT * FROM contract 
-// inner join users on contract.UserID = users.UserID
-// inner join games on contract.GameID = games.GameID
-// where contract.ContractID = ' . $_GET['ContractID'] . '
-// ';
-
-// $stmt = $conn->prepare($getselect);
-// $stmt->execute();
-// $getresulta = $stmt->fetch(PDO::FETCH_ASSOC);
-
-// sanitize variables
-// $paysan = $_POST['PaymentAmount'];
-// $timesan = $_POST['TimeGiven'];
-
-// sanitize
-// $pay = filter_var($paysan, FILTER_SANITIZE_STRING);
-// $time = filter_var($timesan, FILTER_SANITIZE_STRING);
-
-// set variables
-// $status = $_POST['Status'];
-
 // update contract
 $update = "UPDATE contract SET
 Status = 'Confirmed and Payed' WHERE ContractID = ' " . $_GET['ContractID'] . " '
 ";
-// ' " . $_GET['ContractID'] . " '
 $stmt = $conn->prepare($update);
 $stmt->execute();
-
-// test
-// print_r($_POST);  
 
 echo '
 <div class="message">
@@ -57,5 +31,5 @@ echo '
 ?>
 
 <?php
-			include '../view/footer.php';
+include '../view/footer.php';
 ?>	

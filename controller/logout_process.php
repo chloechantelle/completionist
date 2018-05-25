@@ -12,5 +12,5 @@ include '../view/navigation.php';
 <script src="../view/javascript.js"></script>
 
 <div class="logout"><h1>Logged out! Redirecting you now.</h1>
-<p>Click here if you don't get redirected.</p>
+	<p>Click here if you don't get redirected.</p>
 </div>

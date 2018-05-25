@@ -1,6 +1,6 @@
 <?php
-	session_start();
-	include '../model/db.php';
+session_start();
+include '../model/db.php';
 	// include 'header.php';
 	// include 'navigation.php';
 ?>
@@ -21,7 +21,7 @@ elseif(isset($_SESSION['Debug']) && !empty($_SESSION['Debug'])) {
 else {
 	// $_SESSION['Debug'] = 'On';
 }
-	header('Location: ../view/Settings.php');
+header('Location: ../view/settings.php');
 
 
 ?>
